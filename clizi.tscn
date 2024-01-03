@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://5rb7rstf5wpt"]
+
+[ext_resource type="Texture2D" uid="uid://du82s5rnrei0t" path="res://icon.svg" id="2_7jreg"]
+
+[sub_resource type="GDScript" id="GDScript_6shin"]
+script/source = "extends RigidBody2D
+
+var speed: float = 100.0
+var change_direction_interval: float = 2.0
+var timer: Timer
+
+func _ready():
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = change_direction_interval
+	#timer.connect(\"timeout\", self, \"_change_direction\")
+	timer.start()
+
+func _process(delta):
+	# Двигаем объект в текущем направлении
+	var velocity = Vector2(randf_range(-100, 100), randf_range(-100, 100)).normalized() * speed
+	linear_velocity = velocity
+
+func _change_direction():
+	# При срабатывании таймера меняем направление движения
+	timer.wait_time = randf_range(0.5, 2.0)
+	timer.start()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilmiu"]
+size = Vector2(65, 64)
+
+[node name="Clizi" type="RigidBody2D"]
+position = Vector2(33, 19)
+mass = 0.01
+gravity_scale = 0.0
+script = SubResource("GDScript_6shin")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-69.5, 437.5)
+scale = Vector2(0.507813, 0.492188)
+texture = ExtResource("2_7jreg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-69.5, 437)
+shape = SubResource("RectangleShape2D_ilmiu")
+
+[node name="Timer" type="Timer" parent="."]
