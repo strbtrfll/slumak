@@ -8,6 +8,7 @@
 
 [node name="Clizi" parent="." instance=ExtResource("1_3nlhi")]
 position = Vector2(291, -108)
+mass = 1.61
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_e2s7a")
