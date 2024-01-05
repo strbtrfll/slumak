@@ -38,8 +38,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilmiu"]
-size = Vector2(65, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2los"]
+size = Vector2(34, 31)
 
 [node name="Clizi" type="RigidBody2D"]
 mass = 0.01
@@ -52,4 +52,5 @@ sprite_frames = SubResource("SpriteFrames_twp5j")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ilmiu")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_j2los")

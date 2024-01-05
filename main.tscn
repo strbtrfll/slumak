@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsn00mddxc7h7"]
+[gd_scene load_steps=6 format=3 uid="uid://dsn00mddxc7h7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d54m"]
 [ext_resource type="PackedScene" uid="uid://5rb7rstf5wpt" path="res://clizi.tscn" id="1_3nlhi"]
@@ -8,6 +8,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 512, 1024, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxgg1"]
+size = Vector2(64, 1152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm77u"]
+size = Vector2(640, 64)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2d54m")
@@ -20,5 +26,31 @@ autostart = true
 curve = SubResource("Curve2D_syy3m")
 
 [node name="SlimeSpawnLocation" type="PathFollow2D" parent="SlimePath"]
+
+[node name="Borders" type="BoxContainer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-32, 512)
+shape = SubResource("RectangleShape2D_mxgg1")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(544, 512)
+shape = SubResource("RectangleShape2D_mxgg1")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(256, -32)
+shape = SubResource("RectangleShape2D_qm77u")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+position = Vector2(256, 1056)
+shape = SubResource("RectangleShape2D_qm77u")
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
