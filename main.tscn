@@ -13,7 +13,6 @@ point_count = 5
 script = ExtResource("1_2d54m")
 slime_scene = ExtResource("1_3nlhi")
 
-[node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_e2s7a")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
