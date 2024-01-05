@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsn00mddxc7h7"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2d54m"]
+[ext_resource type="PackedScene" uid="uid://5rb7rstf5wpt" path="res://clizi.tscn" id="1_3nlhi"]
+
+[sub_resource type="Curve2D" id="Curve2D_syy3m"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 512, 1024, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_2d54m")
+slime_scene = ExtResource("1_3nlhi")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="SlimePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_syy3m")
+
+[node name="SlimeSpawnLocation" type="PathFollow2D" parent="SlimePath"]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
