@@ -44,8 +44,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilmiu"]
-size = Vector2(65, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2los"]
+size = Vector2(34, 31)
 
 [node name="Clizi" type="RigidBody2D"]
 input_pickable = true
@@ -59,7 +59,4 @@ sprite_frames = SubResource("SpriteFrames_twp5j")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ilmiu")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
