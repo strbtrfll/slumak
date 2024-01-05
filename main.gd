@@ -7,7 +7,7 @@ func _on_spawn_timer_timeout():
 	var slime = slime_scene.instantiate()
 	
 	#Рандомна локація на "MobPath"
-	var slime_spawn_location = get_node("MobPath/MobSpawnLocation")
+	var slime_spawn_location = get_node("SlimePath/SlimeSpawnLocation")
 	slime_spawn_location.progress_ratio = randf()
 	
 	#Позиція ерпендикулярна до "MobPath"
