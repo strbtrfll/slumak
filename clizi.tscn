@@ -11,6 +11,8 @@ var speed = 10
 var timer = 0
 var velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
 
+
+
 func _process(delta):
 	# Двигаем объект в текущем направлении
 	if timer > randf_range(60, 250):
@@ -19,6 +21,10 @@ func _process(delta):
 	linear_velocity = velocity
 	timer = timer+1
 
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and shape_idx == 0:
+		if event.is_pressed():
+			queue_free()
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_twp5j"]
@@ -42,6 +48,7 @@ animations = [{
 size = Vector2(65, 64)
 
 [node name="Clizi" type="RigidBody2D"]
+input_pickable = true
 mass = 0.01
 gravity_scale = 0.0
 script = SubResource("GDScript_6shin")
@@ -53,3 +60,6 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ilmiu")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
