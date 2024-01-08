@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsn00mddxc7h7"]
+[gd_scene load_steps=7 format=3 uid="uid://dsn00mddxc7h7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d54m"]
 [ext_resource type="PackedScene" uid="uid://5rb7rstf5wpt" path="res://clizi.tscn" id="1_3nlhi"]
+[ext_resource type="PackedScene" uid="uid://fr4puk3vssf3" path="res://Zeleni.tscn" id="3_x3cd6"]
 
 [sub_resource type="Curve2D" id="Curve2D_syy3m"]
 _data = {
@@ -18,6 +19,11 @@ size = Vector2(640, 64)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2d54m")
 slime_scene = ExtResource("1_3nlhi")
+orange = ExtResource("3_x3cd6")
+
+[node name="SpawnOrange" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
@@ -53,4 +59,5 @@ shape = SubResource("RectangleShape2D_qm77u")
 position = Vector2(256, 1056)
 shape = SubResource("RectangleShape2D_qm77u")
 
+[connection signal="timeout" from="SpawnOrange" to="." method="_on_spawn_orange_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

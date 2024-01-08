@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://fr4puk3vssf3"]
+
+[ext_resource type="Script" path="res://Zelenui.gd" id="1_axsdu"]
+[ext_resource type="Texture2D" uid="uid://du82s5rnrei0t" path="res://icon.svg" id="2_bjfyb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8t68g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bjfyb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni58k"]
+size = Vector2(129, 129)
+
+[node name="Zelenii" type="RigidBody2D"]
+input_pickable = true
+script = ExtResource("1_axsdu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8t68g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ni58k")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
