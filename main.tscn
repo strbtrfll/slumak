@@ -12,10 +12,10 @@ _data = {
 point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxgg1"]
-size = Vector2(64, 1152)
+size = Vector2(204, 1152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qm77u"]
-size = Vector2(640, 64)
+size = Vector2(640, 218)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2d54m")
@@ -27,6 +27,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.193
 autostart = true
 
 [node name="SlimePath" type="Path2D" parent="."]
@@ -39,25 +40,25 @@ curve = SubResource("Curve2D_syy3m")
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
-position = Vector2(-32, 512)
+position = Vector2(-102, 512)
 shape = SubResource("RectangleShape2D_mxgg1")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
-position = Vector2(544, 512)
+position = Vector2(612, 517)
 shape = SubResource("RectangleShape2D_mxgg1")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
-position = Vector2(256, -32)
+position = Vector2(256, -33)
 shape = SubResource("RectangleShape2D_qm77u")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
-position = Vector2(256, 1056)
+position = Vector2(256, 1132)
 shape = SubResource("RectangleShape2D_qm77u")
 
 [node name="HUD" parent="." instance=ExtResource("4_lhxxa")]
