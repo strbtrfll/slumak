@@ -4,7 +4,7 @@ extends Node2D
 @export var orange: PackedScene
 
 var score = 0
-
+var kilkist = 0
 #Cпавн зеленого
 func _on_spawn_timer_timeout():
 	
@@ -28,6 +28,7 @@ func _on_spawn_timer_timeout():
 	
 	add_child(slime)
 	print("pipi")
+	kilkist += 1 
 	#Якщо, комусь цікаво чому тут числа ПІ, це тому що...
 	#Готод не вміє в градуси і замість них використовує радіани
 	#А я як самий великий математик в дішу не їбу що це. Тому мені довелося переводити радіани в градуси.
@@ -43,9 +44,13 @@ func _on_spawn_orange_timeout():
 	orangeslime.rotation = direction2
 	add_child(orangeslime)
 	print("pipi")
-
+	kilkist += 1 
 #Система балів
 func _on_child_exiting_tree(node):
 	if node:
 		score += 1
+		kilkist -= 1 
 		$HUD/Score.text = str(score)
+func _process(delta):
+	if kilkist >  100:
+		get_tree().change_scene_to_file("res://Сцени інтерфейсу/Menu.tscn")
