@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2q57rululc6n"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_npgut"]
+[ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 
 [node name="Menu" type="Control"]
 process_mode = 1

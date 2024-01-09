@@ -3,7 +3,11 @@ extends Node2D
 @export var slime_scene: PackedScene
 @export var orange: PackedScene
 
+var score = 0
+
+#Cпавн зеленого
 func _on_spawn_timer_timeout():
+	
 	var slime = slime_scene.instantiate()
 	
 	#Рандомна локація на "MobPath"
@@ -27,6 +31,8 @@ func _on_spawn_timer_timeout():
 	#Якщо, комусь цікаво чому тут числа ПІ, це тому що...
 	#Готод не вміє в градуси і замість них використовує радіани
 	#А я як самий великий математик в дішу не їбу що це. Тому мені довелося переводити радіани в градуси.
+
+#Спавн броньованого
 func _on_spawn_orange_timeout():
 	var orangeslime = orange.instantiate()
 	var slime_spawn_location2 = get_node("SlimePath/SlimeSpawnLocation")
@@ -37,3 +43,9 @@ func _on_spawn_orange_timeout():
 	orangeslime.rotation = direction2
 	add_child(orangeslime)
 	print("pipi")
+
+#Система балів
+func _on_child_exiting_tree(node):
+	if node:
+		score += 1
+		$HUD/Score.text = str(score)

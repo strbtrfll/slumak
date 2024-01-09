@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsn00mddxc7h7"]
+[gd_scene load_steps=8 format=3 uid="uid://dsn00mddxc7h7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d54m"]
-[ext_resource type="PackedScene" uid="uid://5rb7rstf5wpt" path="res://clizi.tscn" id="1_3nlhi"]
-[ext_resource type="PackedScene" uid="uid://fr4puk3vssf3" path="res://Zeleni.tscn" id="3_x3cd6"]
+[ext_resource type="PackedScene" uid="uid://5rb7rstf5wpt" path="res://Сцени слимаків/clizi.tscn" id="1_3nlhi"]
+[ext_resource type="PackedScene" uid="uid://fr4puk3vssf3" path="res://Сцени слимаків/Zeleni.tscn" id="3_x3cd6"]
+[ext_resource type="PackedScene" uid="uid://c8v0gu0452u1t" path="res://Сцени інтерфейсу/hud.tscn" id="4_lhxxa"]
 
 [sub_resource type="Curve2D" id="Curve2D_syy3m"]
 _data = {
@@ -59,5 +60,8 @@ shape = SubResource("RectangleShape2D_qm77u")
 position = Vector2(256, 1056)
 shape = SubResource("RectangleShape2D_qm77u")
 
+[node name="HUD" parent="." instance=ExtResource("4_lhxxa")]
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="SpawnOrange" to="." method="_on_spawn_orange_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
