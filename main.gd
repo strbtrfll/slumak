@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var slime_scene: PackedScene
-
+var score = 0
 
 func _on_spawn_timer_timeout():
 	var slime = slime_scene.instantiate()
@@ -21,7 +21,10 @@ func _on_spawn_timer_timeout():
 	slime.rotation = direction
 	
 	add_child(slime)
-	print("pipi")
-	#Якщо, комусь цікаво чому тут числа ПІ, це тому що...
-	#Готод не вміє в градуси і замість них використовує радіани
-	#А я як самий великий математик в дішу не їбу що це. Тому мені довелося переводити радіани в градуси.
+
+
+func _on_child_exiting_tree(node):
+	if node:
+		score += 1
+		$HUD/ScoreLabel.text = str(score)
+		print("pipi")
