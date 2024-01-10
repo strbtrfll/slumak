@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://do12fubt2d5ph"]
+
+[ext_resource type="Texture2D" uid="uid://cmxlnvbq2fax7" path="res://art/black slime/2ч.png" id="1_doc2g"]
+[ext_resource type="Texture2D" uid="uid://ddf36n7p8awum" path="res://art/black slime/1ч.png" id="2_6urlb"]
+[ext_resource type="Texture2D" uid="uid://c3e3tm44td5st" path="res://art/black slime/3ч.png" id="3_nl4su"]
+
+[sub_resource type="GDScript" id="GDScript_wase1"]
+script/source = "extends RigidBody2D
+
+var speed = 10
+var timer = 0
+var velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
+
+
+
+func _process(delta):
+	# Двигаем объект в текущем направлении
+	if timer > randf_range(60, 250):
+		velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
+		timer = 0
+	linear_velocity = velocity
+	timer = timer+1
+
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and shape_idx == 0:
+		if event.is_pressed():
+			queue_free()
+			get_tree().change_scene_to_file(\"res://Сцени інтерфейсу/Menu.tscn\")
+func _on_spawn_black_timeout():
+	queue_free()
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rbsdk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_doc2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6urlb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nl4su")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfaek"]
+radius = 19.0
+height = 46.0
+
+[node name="Node2D" type="RigidBody2D"]
+input_pickable = true
+script = SubResource("GDScript_wase1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.124479, 0.136275)
+sprite_frames = SubResource("SpriteFrames_rbsdk")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lfaek")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_spawn_black_timeout"]
