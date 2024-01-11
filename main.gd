@@ -4,7 +4,7 @@ extends Node2D
 @export var orange: PackedScene
 @export var black: PackedScene
 
-var BlackRandomSpawn = randf_range(30, 60)
+var BlackRandomSpawn = randf_range(0, 60)
 var blacktime = 0
 var score = 0
 var kilkist = 0
@@ -62,7 +62,7 @@ func _on_spawn_black_timeout():
 		blackslime.rotation = direction3
 		add_child(blackslime)
 		print("black")
-		BlackRandomSpawn = randf_range(30, 60)
+		BlackRandomSpawn = randf_range(0, 60)
 		blacktime = 0
 		kilkist += 1 
 	

@@ -45,8 +45,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15rvs"]
-radius = 18.4971
-height = 60.1297
+radius = 22.0215
+height = 64.1235
 
 [node name="Clizi" type="RigidBody2D"]
 input_pickable = true
