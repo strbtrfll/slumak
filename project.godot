@@ -15,6 +15,10 @@ run/main_scene="res://Сцени інтерфейсу/Menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://art/icon.svg"
 
+[autoload]
+
+Save="*res://SaveLoadHighScore.gd"
+
 [display]
 
 window/size/viewport_width=512

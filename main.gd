@@ -4,10 +4,14 @@ extends Node2D
 @export var orange: PackedScene
 @export var black: PackedScene
 
+
 var BlackRandomSpawn = randf_range(0, 60)
 var blacktime = 0
-var score = 0
 var kilkist = 0
+
+func _ready():
+	Save.score = 0
+
 #Cпавн зеленого
 func _on_spawn_timer_timeout():
 	
@@ -68,9 +72,21 @@ func _on_spawn_black_timeout():
 	
 func _on_child_exiting_tree(node):
 	if node:
-		score += 1
+		Save.score += 1
 		kilkist -= 1 
-		$HUD/Score.text = str(score)
-func _process(delta):
-	if kilkist >  100:
+		$HUD/Score.text = str(Save.score)
+
+func game_over():
+	if kilkist >  3:
 		get_tree().change_scene_to_file("res://Сцени інтерфейсу/Menu.tscn")
+	if Save.high_score < Save.score:
+		Save.high_score = Save.score
+		Save.save_high_score()
+		print("pipi")
+
+
+func _process(delta):
+	game_over()
+
+
+
