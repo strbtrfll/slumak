@@ -8,7 +8,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_syy3m"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 512, 1024, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 512, 24, 0, 0, 0, 0, 512, 1024, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 24)
 }
 point_count = 5
 
@@ -38,6 +38,7 @@ autostart = true
 curve = SubResource("Curve2D_syy3m")
 
 [node name="SlimeSpawnLocation" type="PathFollow2D" parent="SlimePath"]
+position = Vector2(0, 24)
 
 [node name="Borders" type="BoxContainer" parent="."]
 

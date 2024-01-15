@@ -7,8 +7,10 @@ extends Node2D
 
 var BlackRandomSpawn = randf_range(0, 60)
 var blacktime = 0
-var kilkist = 0
+var amount = 0 #кількість cлимаків
 
+
+#Виконується при запуску сцени
 func _ready():
 	Save.score = 0
 
@@ -35,7 +37,7 @@ func _on_spawn_timer_timeout():
 	
 	add_child(slime)
 	print("zelenii")
-	kilkist += 1 
+	amount += 1 
 	#Якщо, комусь цікаво чому тут числа ПІ, це тому що...
 	#Готод не вміє в градуси і замість них використовує радіани
 	#А я як самий великий математик в дішу не їбу що це. Тому мені довелося переводити радіани в градуси.
@@ -52,8 +54,9 @@ func _on_spawn_orange_timeout():
 	add_child(orangeslime)
 	print("orange")
 	
-	kilkist += 1 
-	
+	amount += 1 
+
+#Спавн чорного
 func _on_spawn_black_timeout():
 	blacktime +=1
 	if blacktime > BlackRandomSpawn:
@@ -68,23 +71,25 @@ func _on_spawn_black_timeout():
 		print("black")
 		BlackRandomSpawn = randf_range(0, 60)
 		blacktime = 0
-		kilkist += 1 
-	
+		amount += 1 
+
+#Система балів
 func _on_child_exiting_tree(node):
 	if node:
 		Save.score += 1
-		kilkist -= 1 
+		amount -= 1 
 		$HUD/Score.text = str(Save.score)
 
+#Кінець гри
 func game_over():
-	if kilkist >  3:
+	if amount >  20:
 		get_tree().change_scene_to_file("res://Сцени інтерфейсу/Menu.tscn")
 	if Save.high_score < Save.score:
 		Save.high_score = Save.score
 		Save.save_high_score()
 		print("pipi")
 
-
+#Виконується кожен кадр
 func _process(delta):
 	game_over()
 
