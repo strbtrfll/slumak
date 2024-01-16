@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://db1l8g5doklnh"]
+
+[ext_resource type="Script" path="res://Сцени інтерфейсу/Pause.gd" id="1_r3rvp"]
+
+[node name="Pause" type="Node"]
+process_mode = 3
+script = ExtResource("1_r3rvp")
