@@ -19,4 +19,5 @@ func _on_input_event(viewport, event, shape_idx):
 		n=n+1
 		if event.is_pressed() and n>1:
 			n=0
+			Save.score += 1
 			queue_free()

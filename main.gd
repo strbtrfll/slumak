@@ -76,7 +76,6 @@ func _on_spawn_black_timeout():
 #Система балів
 func _on_child_exiting_tree(node):
 	if node:
-		Save.score += 1
 		amount -= 1 
 		$HUD/Score.text = str(Save.score)
 

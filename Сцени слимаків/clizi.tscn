@@ -24,6 +24,7 @@ func _process(delta):
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and shape_idx == 0:
 		if event.is_pressed():
+			Save.score += 1
 			queue_free()
 "
 
