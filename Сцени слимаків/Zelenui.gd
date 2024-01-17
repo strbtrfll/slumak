@@ -21,3 +21,8 @@ func _on_input_event(viewport, event, shape_idx):
 			n=0
 			Save.score += 1
 			queue_free()
+
+func _on_body_entered(body):
+	velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * 12
+	timer = 0
+	
