@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://fr4puk3vssf3" path="res://Сцени слимаків/Zeleni.tscn" id="3_x3cd6"]
 [ext_resource type="PackedScene" uid="uid://do12fubt2d5ph" path="res://Сцени слимаків/black.tscn" id="4_dexbr"]
 [ext_resource type="PackedScene" uid="uid://c8v0gu0452u1t" path="res://Сцени інтерфейсу/hud.tscn" id="4_lhxxa"]
-[ext_resource type="PackedScene" uid="uid://db1l8g5doklnh" path="res://Сцени інтерфейсу/pause.tscn" id="5_k6ssy"]
+[ext_resource type="PackedScene" uid="uid://cec7ypqolpytf" path="res://Сцени інтерфейсу/pause_menu.tscn" id="5_au65c"]
 
 [sub_resource type="Curve2D" id="Curve2D_syy3m"]
 _data = {
@@ -25,7 +25,10 @@ slime_scene = ExtResource("1_3nlhi")
 orange = ExtResource("3_x3cd6")
 black = ExtResource("4_dexbr")
 
-[node name="Pause" parent="." instance=ExtResource("5_k6ssy")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("main") instance=ExtResource("5_au65c")]
+main = NodePath("../..")
 
 [node name="SpawnBlack" type="Timer" parent="."]
 autostart = true
