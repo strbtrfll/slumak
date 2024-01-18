@@ -25,6 +25,13 @@ slime_scene = ExtResource("1_3nlhi")
 orange = ExtResource("3_x3cd6")
 black = ExtResource("4_dexbr")
 
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 465.0
+offset_top = 36.0
+offset_right = 496.0
+offset_bottom = 69.0
+text = "||"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("main") instance=ExtResource("5_au65c")]
@@ -75,6 +82,7 @@ shape = SubResource("RectangleShape2D_qm77u")
 [node name="HUD" parent="." instance=ExtResource("4_lhxxa")]
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="timeout" from="SpawnBlack" to="." method="_on_spawn_black_timeout"]
 [connection signal="timeout" from="SpawnOrange" to="." method="_on_spawn_orange_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

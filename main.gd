@@ -107,9 +107,11 @@ var game_paused : bool = false:
 		emit_signal("toggle_game_paused", game_paused)
 		
 
-func _input(event : InputEvent):
-	if(event.is_action_pressed("ui_cancel")):
-		game_paused = !game_paused
+# Pause on Esc
+#func _input(event : InputEvent):
+#	if(event.is_action_pressed("ui_cancel")):
+#		game_paused = !game_paused
 		
 
-
+func _on_pause_button_pressed():
+	game_paused = true
