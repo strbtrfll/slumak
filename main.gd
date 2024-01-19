@@ -38,7 +38,6 @@ func _on_spawn_timer_timeout():
 	slime.rotation = direction
 	
 	add_child(slime)
-	print("zelenii")
 	amount += 1 
 	#Якщо, комусь цікаво чому тут числа ПІ, це тому що...
 	#Готод не вміє в градуси і замість них використовує радіани
@@ -54,7 +53,6 @@ func _on_spawn_orange_timeout():
 	direction2 += randf_range(-PI / 4 , PI / 4)
 	orangeslime.rotation = direction2
 	add_child(orangeslime)
-	print("orange")
 	
 	amount += 1 
 
@@ -70,7 +68,6 @@ func _on_spawn_black_timeout():
 		direction3 += randf_range(-PI / 4 , PI / 4)
 		blackslime.rotation = direction3
 		add_child(blackslime)
-		print("black")
 		BlackRandomSpawn = randf_range(0, 60)
 		blacktime = 0
 		amount += 1 
@@ -93,7 +90,37 @@ func game_over():
 #Виконується кожен кадр
 func _process(delta):
 	game_over()
+	speedup_1()
+	speedup_2()
+	speedup_3()
+	speedup_4()
+	speedup_5()
 
+#Пришвидшення гри
+func speedup_1():
+	if Save.score >= 10:
+		$SpawnTimer.wait_time = 1.7
+		$SpawnOrange.wait_time = 4
+func speedup_2():
+	if Save.score >= 30:
+		$SpawnTimer.wait_time = 1.5
+		$SpawnOrange.wait_time = 3
+		BlackRandomSpawn = randf_range(0, 50)
+func speedup_3():
+	if Save.score >= 80:
+		$SpawnTimer.wait_time = 1
+		$SpawnOrange.wait_time = 2.5
+		BlackRandomSpawn = randf_range(0, 45)
+func speedup_4():
+	if Save.score >= 150:
+		$SpawnTimer.wait_time = 0.75
+		$SpawnOrange.wait_time = 2
+		BlackRandomSpawn = randf_range(0, 40)
+func speedup_5():
+	if Save.score >= 300:
+		$SpawnTimer.wait_time = 0.5
+		$SpawnOrange.wait_time = 2
+		BlackRandomSpawn = randf_range(0, 35)
 
 #vizav pause menu
 signal toggle_game_paused(is_paused : bool)
@@ -105,7 +132,7 @@ var game_paused : bool = false:
 		game_paused = value
 		get_tree().paused = game_paused #???
 		emit_signal("toggle_game_paused", game_paused)
-		
+
 
 # Pause on Esc
 #func _input(event : InputEvent):
