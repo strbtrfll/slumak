@@ -30,7 +30,7 @@ func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and shape_idx == 0:
 		if event.is_pressed():
 			queue_free()
-			get_tree().change_scene_to_file(\"res://Сцени інтерфейсу/Menu.tscn\")
+			get_tree().change_scene_to_file(\"res://Сцени інтерфейсу/death_menu.tscn\")
 
 #Таймер смерті від старості
 func _on_spawn_black_timeout():
