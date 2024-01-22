@@ -15,6 +15,7 @@ var amount = 0 #кількість cлимаків
 #Виконується при запуску сцени
 func _ready():
 	Save.score = 0
+	
 
 #Cпавн зеленого
 func _on_spawn_timer_timeout():
@@ -79,9 +80,11 @@ func _on_child_exiting_tree(node):
 		$HUD/Score.text = str(Save.score)
 
 #Кінець гри
+
+
 func game_over():
 	if amount >  20:
-		get_tree().change_scene_to_file("res://Сцени інтерфейсу/Menu.tscn")
+		get_tree().change_scene_to_file("res://Сцени інтерфейсу/death_menu.tscn")
 	if Save.high_score < Save.score:
 		Save.high_score = Save.score
 		Save.save_high_score()
@@ -130,7 +133,7 @@ var game_paused : bool = false:
 		return game_paused
 	set(value):
 		game_paused = value
-		get_tree().paused = game_paused #???
+		get_tree().paused = game_paused
 		emit_signal("toggle_game_paused", game_paused)
 
 
