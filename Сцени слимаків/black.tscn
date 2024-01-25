@@ -22,7 +22,7 @@ func _process(delta):
 	if timer > randf_range(60, 250):
 		velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
 		timer = 0
-	linear_velocity = velocity
+	linear_velocity = velocity 
 	timer = timer+1
 
 #Клік
@@ -64,8 +64,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfaek"]
-radius = 19.0
-height = 46.0
+radius = 40.0
+height = 88.0
 
 [sub_resource type="Animation" id="Animation_7x6tc"]
 resource_name = "Black_death"
@@ -95,9 +95,11 @@ contact_monitor = true
 script = SubResource("GDScript_wase1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.124479, 0.136275)
+scale = Vector2(0.2, 0.237)
 sprite_frames = SubResource("SpriteFrames_rbsdk")
 autoplay = "default"
+frame = 1
+frame_progress = 0.510739
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

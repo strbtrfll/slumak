@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://dln1m4oxi7653"]
+
+[ext_resource type="Script" path="res://Blue.gd" id="1_0kh3f"]
+[ext_resource type="Texture2D" uid="uid://t4ts5iewnj4l" path="res://art/blue slime/4с.png" id="2_as630"]
+[ext_resource type="Texture2D" uid="uid://g7rlu1kk6fgu" path="res://art/blue slime/1с.png" id="3_lhjd7"]
+[ext_resource type="Texture2D" uid="uid://dcj3rfg7jbb6n" path="res://art/blue slime/2с.png" id="4_qrn67"]
+[ext_resource type="Texture2D" uid="uid://40tts1eudf6l" path="res://art/blue slime/3с.png" id="5_oimbf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dvxgi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_as630")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lhjd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qrn67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oimbf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ohgus"]
+radius = 25.0
+height = 66.0
+
+[sub_resource type="Animation" id="Animation_6forh"]
+resource_name = "Blue_Death"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Death", &"Death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbtnm"]
+_data = {
+"Blue_Death": SubResource("Animation_6forh")
+}
+
+[node name="Blue" type="RigidBody2D"]
+input_pickable = true
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_0kh3f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_dvxgi")
+autoplay = "default"
+frame_progress = 0.920471
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ohgus")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xbtnm")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

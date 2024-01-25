@@ -1,31 +1,29 @@
 extends RigidBody2D
 
-var speed = 10
+var speed = 2000
 var timer = 0
 var velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
-var n = 0
+
 
 #Кожен кадр/рух
 func _process(delta):
 	# Двигаем объект в текущем направлении
 	if timer > randf_range(60, 250):
-		velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
+		velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed 
 		timer = 0
-	linear_velocity = velocity 
+	linear_velocity = velocity * delta
 	timer = timer+1
 
 #Клік
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and shape_idx == 0:
-		n=n+1
-		if event.is_pressed() and n>1:
-			n=0
+		if event.is_pressed():
 			Save.score += 1
 			death()
 
 #Відштовхування
 func _on_body_entered(body):
-	velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * 12
+	velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * 2000
 	timer = 0
 
 #Таймер смерті
@@ -36,6 +34,6 @@ func _on_death_timer_timeout():
 func death():
 	$AnimatedSprite2D.play("Death")
 	$DeathTimer.start()
-	$AnimationPlayer.play("Orange_death")
+	$AnimationPlayer.play("Blue_Death")
 	$CollisionShape2D.disabled = true
 	freeze = true

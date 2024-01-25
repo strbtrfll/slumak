@@ -5,6 +5,7 @@ class_name Main
 @export var slime_scene: PackedScene
 @export var orange: PackedScene
 @export var black: PackedScene
+@export var blue: PackedScene
 
 
 var BlackRandomSpawn = randf_range(0, 60)
@@ -15,7 +16,6 @@ var amount = 0 #кількість cлимаків
 #Виконується при запуску сцени
 func _ready():
 	Save.score = 0
-	
 
 #Cпавн зеленого
 func _on_spawn_timer_timeout():
@@ -73,6 +73,17 @@ func _on_spawn_black_timeout():
 		blacktime = 0
 		amount += 1 
 
+func _on_spawn_blue_timeout():
+	var blueslime = blue.instantiate()
+	var slime_spawn_location4 = get_node("SlimePath/SlimeSpawnLocation")
+	slime_spawn_location4.progress_ratio = randf()
+	var direction4 = slime_spawn_location4.rotation + PI / 2
+	blueslime.position = slime_spawn_location4.position
+	direction4 += randf_range(-PI / 4 , PI / 4)
+	blueslime.rotation = direction4
+	add_child(blueslime)
+	
+	amount += 1 
 #Система балів
 func _on_child_exiting_tree(node):
 	if node:
