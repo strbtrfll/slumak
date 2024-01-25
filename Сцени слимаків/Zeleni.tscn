@@ -36,8 +36,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dh8q2"]
-radius = 37.0
-height = 80.0
+radius = 44.0
+height = 112.0
 
 [sub_resource type="Animation" id="Animation_jgvgs"]
 resource_name = "Orange_death"
@@ -81,12 +81,13 @@ contact_monitor = true
 script = ExtResource("1_axsdu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.242, 0.25)
+scale = Vector2(0.25, 0.258)
 sprite_frames = SubResource("SpriteFrames_8t68g")
-animation = &"Death"
 autoplay = "default"
+frame_progress = 0.701165
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dh8q2")
 
 [node name="DeathTimer" type="Timer" parent="."]

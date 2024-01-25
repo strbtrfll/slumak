@@ -21,7 +21,7 @@ var velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
 func _process(delta):
 	# Двигаем объект в текущем направлении
 	if timer > randf_range(60, 250):
-		velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
+		velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed 
 		timer = 0
 	linear_velocity = velocity
 	timer = timer+1
@@ -77,8 +77,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15rvs"]
-radius = 22.0215
-height = 64.1235
+radius = 28.0122
+height = 68.0056
 
 [sub_resource type="Animation" id="Animation_qvm5q"]
 resource_name = "Green_death"
@@ -123,7 +123,7 @@ contact_monitor = true
 script = SubResource("GDScript_6shin")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.136979, 0.15)
+scale = Vector2(0.15, 0.164)
 sprite_frames = SubResource("SpriteFrames_twp5j")
 animation = &"Death"
 autoplay = "default"

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsn00mddxc7h7"]
+[gd_scene load_steps=11 format=3 uid="uid://dsn00mddxc7h7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d54m"]
 [ext_resource type="PackedScene" uid="uid://5rb7rstf5wpt" path="res://Сцени слимаків/clizi.tscn" id="1_3nlhi"]
 [ext_resource type="PackedScene" uid="uid://fr4puk3vssf3" path="res://Сцени слимаків/Zeleni.tscn" id="3_x3cd6"]
 [ext_resource type="PackedScene" uid="uid://do12fubt2d5ph" path="res://Сцени слимаків/black.tscn" id="4_dexbr"]
 [ext_resource type="PackedScene" uid="uid://c8v0gu0452u1t" path="res://Сцени інтерфейсу/hud.tscn" id="4_lhxxa"]
+[ext_resource type="PackedScene" uid="uid://dln1m4oxi7653" path="res://Сцени слимаків/blue.tscn" id="5_31ok4"]
 [ext_resource type="PackedScene" uid="uid://cec7ypqolpytf" path="res://Сцени інтерфейсу/pause_menu.tscn" id="5_au65c"]
 
 [sub_resource type="Curve2D" id="Curve2D_syy3m"]
@@ -24,6 +25,7 @@ script = ExtResource("1_2d54m")
 slime_scene = ExtResource("1_3nlhi")
 orange = ExtResource("3_x3cd6")
 black = ExtResource("4_dexbr")
+blue = ExtResource("5_31ok4")
 
 [node name="PauseButton" type="Button" parent="."]
 offset_left = 465.0
@@ -48,6 +50,10 @@ autostart = true
 wait_time = 2.0
 autostart = true
 
+[node name="SpawnBlue" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [node name="SlimePath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_syy3m")
 
@@ -59,13 +65,13 @@ position = Vector2(0, 24)
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
-position = Vector2(-102, 512)
+position = Vector2(-104, 512)
 shape = SubResource("RectangleShape2D_mxgg1")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
-position = Vector2(612, 517)
+position = Vector2(616, 512)
 shape = SubResource("RectangleShape2D_mxgg1")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
@@ -77,7 +83,7 @@ shape = SubResource("RectangleShape2D_qm77u")
 [node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
-position = Vector2(255, 1115)
+position = Vector2(256, 1136)
 shape = SubResource("RectangleShape2D_qm77u")
 
 [node name="HUD" parent="." instance=ExtResource("4_lhxxa")]
@@ -88,3 +94,4 @@ process_mode = 2
 [connection signal="timeout" from="SpawnBlack" to="." method="_on_spawn_black_timeout"]
 [connection signal="timeout" from="SpawnOrange" to="." method="_on_spawn_orange_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="SpawnBlue" to="." method="_on_spawn_blue_timeout"]
