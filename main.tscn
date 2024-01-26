@@ -10,15 +10,15 @@
 
 [sub_resource type="Curve2D" id="Curve2D_syy3m"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 512, 24, 0, 0, 0, 0, 512, 1024, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 24)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 480, 8, 0, 0, 0, 0, 480, 1024, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 8)
 }
 point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxgg1"]
-size = Vector2(204, 1152)
+size = Vector2(184, 1152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qm77u"]
-size = Vector2(640, 218)
+size = Vector2(640, 152)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2d54m")
@@ -28,10 +28,10 @@ black = ExtResource("4_dexbr")
 blue = ExtResource("5_31ok4")
 
 [node name="PauseButton" type="Button" parent="."]
-offset_left = 465.0
-offset_top = 36.0
-offset_right = 496.0
-offset_bottom = 69.0
+offset_left = 416.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 64.0
 text = "||"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -55,35 +55,37 @@ wait_time = 5.0
 autostart = true
 
 [node name="SlimePath" type="Path2D" parent="."]
+position = Vector2(8, 0.0629921)
+scale = Vector2(0.966667, 0.992126)
 curve = SubResource("Curve2D_syy3m")
 
 [node name="SlimeSpawnLocation" type="PathFollow2D" parent="SlimePath"]
-position = Vector2(0, 24)
+position = Vector2(0, 8)
 
 [node name="Borders" type="BoxContainer" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
-position = Vector2(-104, 512)
+position = Vector2(-100, 512)
 shape = SubResource("RectangleShape2D_mxgg1")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
-position = Vector2(616, 512)
+position = Vector2(580, 512)
 shape = SubResource("RectangleShape2D_mxgg1")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
-position = Vector2(256, -33)
+position = Vector2(256, -82.6875)
 shape = SubResource("RectangleShape2D_qm77u")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
-position = Vector2(256, 1136)
+position = Vector2(256, 1108)
 shape = SubResource("RectangleShape2D_qm77u")
 
 [node name="HUD" parent="." instance=ExtResource("4_lhxxa")]
