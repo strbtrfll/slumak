@@ -11,44 +11,38 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0ui12")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -109.5
-offset_top = -76.5
-offset_right = 109.5
-offset_bottom = 76.5
+offset_left = -74.0
+offset_top = -73.0
+offset_right = 74.0
+offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GameOver" type="Label" parent="Panel/VBoxContainer"]
+[node name="GameOver" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "            Game over :("
+text = "Game over :("
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Score" type="Label" parent="Panel/VBoxContainer"]
+[node name="Score" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Top score: %s
 Current score: %s"
 
-[node name="RestartButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Restart"
 
-[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="Panel/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

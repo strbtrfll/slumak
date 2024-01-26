@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://do12fubt2d5ph"]
+[gd_scene load_steps=13 format=3 uid="uid://do12fubt2d5ph"]
 
 [ext_resource type="Texture2D" uid="uid://cmxlnvbq2fax7" path="res://art/black slime/2ч.png" id="1_doc2g"]
 [ext_resource type="Texture2D" uid="uid://ddf36n7p8awum" path="res://art/black slime/1ч.png" id="2_6urlb"]
 [ext_resource type="Texture2D" uid="uid://c3e3tm44td5st" path="res://art/black slime/3ч.png" id="3_nl4su"]
+[ext_resource type="AudioStream" uid="uid://bwdetpskwxwuf" path="res://Audio/SFX/Slime_move_3.1.wav" id="4_ar72k"]
+[ext_resource type="AudioStream" uid="uid://xx3uu3l43do8" path="res://Audio/SFX/Slime_move_3.2.wav" id="5_xdbw8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_234mm"]
 friction = 0.0
@@ -15,6 +17,9 @@ var speed = 10
 var timer = 0
 var velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
 
+#Початок гри
+func _ready():
+	$Move.play()
 
 #Кожен кадр/рух
 func _process(delta):
@@ -44,6 +49,13 @@ func _on_body_entered(body):
 #Анімація
 func _on_animation_timer_timeout():
 	$AnimationPlayer.play(\"Black_death\")
+
+#SFX
+func audio_event_move():
+	if $AnimatedSprite2D.frame == 0:
+		$Move.play()
+func _on_animated_sprite_2d_frame_changed():
+	audio_event_move()
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rbsdk"]
@@ -87,6 +99,14 @@ _data = {
 "Black_death": SubResource("Animation_7x6tc")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fh0h3"]
+random_pitch = 1.2
+streams_count = 2
+stream_0/stream = ExtResource("4_ar72k")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_xdbw8")
+stream_1/weight = 1.0
+
 [node name="Node2D" type="RigidBody2D"]
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_234mm")
@@ -117,7 +137,12 @@ libraries = {
 "": SubResource("AnimationLibrary_8vq2s")
 }
 
+[node name="Move" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_fh0h3")
+pitch_scale = 1.1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_spawn_black_timeout"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

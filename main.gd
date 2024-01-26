@@ -15,7 +15,6 @@ var amount = 0 #кількість cлимаків
 #Виконується при запуску сцени
 func _ready():
 	Save.score = 0
-	
 
 #Cпавн зеленого
 func _on_spawn_timer_timeout():
@@ -80,15 +79,13 @@ func _on_child_exiting_tree(node):
 		$HUD/Score.text = str(Save.score)
 
 #Кінець гри
-
-
 func game_over():
 	if amount >  20:
 		get_tree().change_scene_to_file("res://Сцени інтерфейсу/death_menu.tscn")
 	if Save.high_score < Save.score:
 		Save.high_score = Save.score
 		Save.save_high_score()
-		print("pipi")
+
 
 #Виконується кожен кадр
 func _process(delta):
@@ -136,12 +133,10 @@ var game_paused : bool = false:
 		get_tree().paused = game_paused
 		emit_signal("toggle_game_paused", game_paused)
 
-
 # Pause on Esc
 #func _input(event : InputEvent):
 #	if(event.is_action_pressed("ui_cancel")):
 #		game_paused = !game_paused
-		
 
 func _on_pause_button_pressed():
 	game_paused = true

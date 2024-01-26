@@ -5,6 +5,10 @@ var timer = 0
 var velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
 var n = 0
 
+#Початок гри
+func _ready():
+	$Move.play()
+
 #Кожен кадр/рух
 func _process(delta):
 	# Двигаем объект в текущем направлении
@@ -39,3 +43,10 @@ func death():
 	$AnimationPlayer.play("Orange_death")
 	$CollisionShape2D.disabled = true
 	freeze = true
+
+#SFX
+func audio_event_move():
+	if $AnimatedSprite2D.frame == 0:
+		$Move.play()
+func _on_animated_sprite_2d_frame_changed():
+	audio_event_move()
