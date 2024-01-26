@@ -69,6 +69,7 @@ _data = {
 }
 
 [node name="Blue" type="RigidBody2D"]
+top_level = true
 input_pickable = true
 max_contacts_reported = 1
 contact_monitor = true
