@@ -90,6 +90,7 @@ shape = SubResource("RectangleShape2D_qm77u")
 
 [node name="HUD" parent="." instance=ExtResource("4_lhxxa")]
 process_mode = 2
+layer = -1
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
