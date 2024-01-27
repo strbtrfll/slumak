@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cec7ypqolpytf"]
+[gd_scene load_steps=3 format=3 uid="uid://cec7ypqolpytf"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/pause_menu.gd" id="1_25iu8"]
+[ext_resource type="FontFile" uid="uid://cyos2v48035hr" path="res://art/gagalin.ttf" id="2_ugvw8"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -36,14 +37,17 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ugvw8")
 text = "                   | PAUSE |"
 
 [node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ugvw8")
 text = "Resume"
 
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ugvw8")
 text = "Quit"
 
 [connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

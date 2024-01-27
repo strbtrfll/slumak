@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://2q57rululc6n"]
+[gd_scene load_steps=4 format=3 uid="uid://2q57rululc6n"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
+[ext_resource type="FontFile" uid="uid://cyos2v48035hr" path="res://art/gagalin.ttf" id="2_1sfdy"]
 
 [node name="Menu" type="Control"]
 process_mode = 1
@@ -31,15 +32,18 @@ grow_vertical = 2
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
+theme_override_fonts/font = ExtResource("2_1sfdy")
 text = "Start"
 
 [node name="OptionButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1sfdy")
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_fonts/font = ExtResource("2_1sfdy")
 text = "Quit"
 
 [node name="Options" type="Control" parent="."]
@@ -72,16 +76,19 @@ size_flags_horizontal = 3
 [node name="Master" type="Label" parent="Options/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 5
+theme_override_fonts/font = ExtResource("2_1sfdy")
 text = "Master Volume"
 
 [node name="Music" type="Label" parent="Options/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 5
+theme_override_fonts/font = ExtResource("2_1sfdy")
 text = "Music"
 
 [node name="SFX" type="Label" parent="Options/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 5
+theme_override_fonts/font = ExtResource("2_1sfdy")
 text = "Sound FX"
 
 [node name="Slider" type="VBoxContainer" parent="Options/HBoxContainer"]
@@ -112,6 +119,7 @@ offset_right = 22.5
 offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_1sfdy")
 text = "Back"
 
 [node name="HighScore" type="Label" parent="."]
@@ -127,6 +135,7 @@ offset_right = 32.0
 offset_bottom = -47.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1sfdy")
 theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1

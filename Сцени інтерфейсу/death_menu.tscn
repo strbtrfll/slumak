@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://blecx1e1bk84w"]
+[gd_scene load_steps=3 format=3 uid="uid://blecx1e1bk84w"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/death_menu.gd" id="1_0ui12"]
+[ext_resource type="FontFile" uid="uid://cyos2v48035hr" path="res://art/gagalin.ttf" id="2_7na58"]
 
 [node name="DeathMenu" type="Control"]
 layout_mode = 3
@@ -35,19 +36,23 @@ grow_vertical = 2
 
 [node name="GameOver" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7na58")
 text = "            Game over :("
 
 [node name="Score" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7na58")
 text = "Top score: %s
 Current score: %s"
 
 [node name="RestartButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7na58")
 text = "Restart"
 
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7na58")
 text = "Quit"
 
 [connection signal="pressed" from="Panel/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
