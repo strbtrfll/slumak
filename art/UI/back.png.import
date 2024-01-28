@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p1juwr8xlhid"
-path="res://.godot/imported/rakovina.png-18af0b765ad72d441c22e1a1b69542db.ctex"
+uid="uid://4esr6ilr7pjy"
+path="res://.godot/imported/back.png-44ac5949b2563b350dbdf63588db74fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/rakovina.png"
-dest_files=["res://.godot/imported/rakovina.png-18af0b765ad72d441c22e1a1b69542db.ctex"]
+source_file="res://art/UI/back.png"
+dest_files=["res://.godot/imported/back.png-44ac5949b2563b350dbdf63588db74fc.ctex"]
 
 [params]
 
