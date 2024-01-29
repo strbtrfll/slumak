@@ -40,6 +40,7 @@ func death():
 	$AnimationPlayer.play("Blue_Death")
 	$CollisionShape2D.disabled = true
 	freeze = true
+	$Death.play()
 
 #SFX
 func audio_event_move():

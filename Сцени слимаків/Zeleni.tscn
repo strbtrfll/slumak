@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://fr4puk3vssf3"]
+[gd_scene load_steps=18 format=3 uid="uid://fr4puk3vssf3"]
 
 [ext_resource type="Script" path="res://Сцени слимаків/Zelenui.gd" id="1_axsdu"]
 [ext_resource type="Texture2D" uid="uid://dxdx5eiifb6dy" path="res://art/orange slime/4о.png" id="2_mod2g"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bqfi8bms1osde" path="res://art/orange slime/3о.png" id="4_a2yvj"]
 [ext_resource type="AudioStream" uid="uid://bwdetpskwxwuf" path="res://Audio/SFX/Slime_move_3.1.wav" id="6_3dlhv"]
 [ext_resource type="AudioStream" uid="uid://xx3uu3l43do8" path="res://Audio/SFX/Slime_move_3.2.wav" id="7_2qx3v"]
+[ext_resource type="AudioStream" uid="uid://okd75qjac6hb" path="res://Audio/SFX/death/Slime_death_3.2.wav" id="8_wr754"]
+[ext_resource type="AudioStream" uid="uid://dnfibrfxgj0qf" path="res://Audio/SFX/death/Slime_death_2.3.wav" id="9_i3mho"]
+[ext_resource type="AudioStream" uid="uid://31qbsmyg03mb" path="res://Audio/SFX/death/Slime_death_3.3.wav" id="10_74jnk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4ydd0"]
 friction = 0.0
@@ -82,6 +85,16 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource("7_2qx3v")
 stream_1/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nkrp4"]
+random_pitch = 1.5
+streams_count = 3
+stream_0/stream = ExtResource("8_wr754")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("9_i3mho")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("10_74jnk")
+stream_2/weight = 1.0
+
 [node name="Zelenii" type="RigidBody2D"]
 top_level = true
 input_pickable = true
@@ -113,6 +126,12 @@ libraries = {
 [node name="Move" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_bp0jy")
 bus = &"SlimeMoves"
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_nkrp4")
+volume_db = 1.0
+panning_strength = 0.0
+bus = &"SlimeDeath"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]

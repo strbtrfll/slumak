@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5rb7rstf5wpt"]
+[gd_scene load_steps=18 format=3 uid="uid://5rb7rstf5wpt"]
 
 [ext_resource type="Texture2D" uid="uid://ct5ybrps5ygpy" path="res://art/green slime/4.png" id="1_bqv1s"]
 [ext_resource type="Texture2D" uid="uid://bgahux01w0jf3" path="res://art/green slime/1.png" id="1_cx448"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://datxyvef0mkc7" path="res://art/green slime/3.png" id="3_4j7ix"]
 [ext_resource type="AudioStream" uid="uid://bwdetpskwxwuf" path="res://Audio/SFX/Slime_move_3.1.wav" id="5_cdksi"]
 [ext_resource type="AudioStream" uid="uid://xx3uu3l43do8" path="res://Audio/SFX/Slime_move_3.2.wav" id="6_qu20y"]
+[ext_resource type="AudioStream" uid="uid://okd75qjac6hb" path="res://Audio/SFX/death/Slime_death_3.2.wav" id="8_c2y2b"]
+[ext_resource type="AudioStream" uid="uid://31qbsmyg03mb" path="res://Audio/SFX/death/Slime_death_3.3.wav" id="9_eokph"]
+[ext_resource type="AudioStream" uid="uid://dnfibrfxgj0qf" path="res://Audio/SFX/death/Slime_death_2.3.wav" id="12_0vy0p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j60g8"]
 friction = 0.0
@@ -54,6 +57,7 @@ func death():
 	$AnimationPlayer.play(\"Green_death\")
 	$CollisionShape2D.disabled = true
 	freeze = true
+	$Death.play()
 
 #SFX
 func audio_event_move():
@@ -135,6 +139,16 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource("6_qu20y")
 stream_1/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tpw1b"]
+random_pitch = 1.2
+streams_count = 3
+stream_0/stream = ExtResource("8_c2y2b")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("12_0vy0p")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("9_eokph")
+stream_2/weight = 1.0
+
 [node name="Clizi" type="RigidBody2D"]
 top_level = true
 input_pickable = true
@@ -168,6 +182,12 @@ libraries = {
 stream = SubResource("AudioStreamRandomizer_mk8q8")
 pitch_scale = 1.5
 bus = &"SlimeMoves"
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_tpw1b")
+volume_db = 1.0
+panning_strength = 0.0
+bus = &"SlimeDeath"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
