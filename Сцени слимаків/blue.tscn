@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dln1m4oxi7653"]
+[gd_scene load_steps=17 format=3 uid="uid://dln1m4oxi7653"]
 
 [ext_resource type="Script" path="res://Сцени слимаків/Blue.gd" id="1_iry1w"]
 [ext_resource type="Texture2D" uid="uid://t4ts5iewnj4l" path="res://art/blue slime/4с.png" id="2_as630"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://40tts1eudf6l" path="res://art/blue slime/3с.png" id="5_oimbf"]
 [ext_resource type="AudioStream" uid="uid://bwdetpskwxwuf" path="res://Audio/SFX/Slime_move_3.1.wav" id="6_8njth"]
 [ext_resource type="AudioStream" uid="uid://xx3uu3l43do8" path="res://Audio/SFX/Slime_move_3.2.wav" id="7_qhabw"]
+[ext_resource type="AudioStream" uid="uid://okd75qjac6hb" path="res://Audio/SFX/death/Slime_death_3.2.wav" id="8_5bsro"]
+[ext_resource type="AudioStream" uid="uid://dnfibrfxgj0qf" path="res://Audio/SFX/death/Slime_death_2.3.wav" id="9_l1x1p"]
+[ext_resource type="AudioStream" uid="uid://31qbsmyg03mb" path="res://Audio/SFX/death/Slime_death_3.3.wav" id="10_w67w7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dvxgi"]
 animations = [{
@@ -78,6 +81,16 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource("7_qhabw")
 stream_1/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fggei"]
+random_pitch = 1.2
+streams_count = 3
+stream_0/stream = ExtResource("8_5bsro")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("9_l1x1p")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("10_w67w7")
+stream_2/weight = 1.0
+
 [node name="Blue" type="RigidBody2D"]
 top_level = true
 input_pickable = true
@@ -106,6 +119,13 @@ libraries = {
 
 [node name="Move" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_gsggk")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_fggei")
+volume_db = 1.0
+pitch_scale = 1.2
+panning_strength = 0.0
+bus = &"SlimeDeath"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
