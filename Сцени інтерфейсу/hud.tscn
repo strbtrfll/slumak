@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8v0gu0452u1t"]
 
-[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/Gagalin-Regular.otf" id="1_fqgtt"]
+[ext_resource type="FontFile" uid="uid://d01ve0kjmxkw" path="res://art/BG/Brownie Stencil.woff" id="1_5oi7d"]
 
 [node name="HUD" type="CanvasLayer"]
 layer = 0
@@ -15,15 +15,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -240.0
-offset_top = -216.0
-offset_right = -120.0
-offset_bottom = -128.0
+offset_top = -512.0
+offset_right = 240.0
+offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4, 4)
-theme_override_fonts/font = ExtResource("1_fqgtt")
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("1_5oi7d")
+theme_override_font_sizes/font_size = 200
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3

@@ -43,10 +43,10 @@ process_mode = 2
 layer = -1
 
 [node name="PauseButton" type="Button" parent="."]
-offset_left = 416.0
+offset_left = 400.0
 offset_top = 24.0
 offset_right = 456.0
-offset_bottom = 64.0
+offset_bottom = 80.0
 icon = ExtResource("8_fpngq")
 flat = true
 icon_alignment = 1
