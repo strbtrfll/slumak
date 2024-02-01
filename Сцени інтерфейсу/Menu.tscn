@@ -185,7 +185,7 @@ script = ExtResource("2_1armb")
 [node name="UIAudio" parent="." instance=ExtResource("8_ak3d0")]
 
 [node name="StartTimer" type="Timer" parent="UIAudio"]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
