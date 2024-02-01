@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://2q57rululc6n"]
+[gd_scene load_steps=7 format=3 uid="uid://2q57rululc6n"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
-[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/Gagalin-Regular.otf" id="2_h5yng"]
 [ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="2_ruhv4"]
-[ext_resource type="FontFile" uid="uid://d01ve0kjmxkw" path="res://art/BG/Brownie Stencil.woff" id="3_3onrs"]
+[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="3_0jbpt"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_rfpqi"]
 [ext_resource type="Texture2D" uid="uid://4esr6ilr7pjy" path="res://art/UI/back.png" id="5_wnmy6"]
 
@@ -45,8 +44,8 @@ alignment = 1
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
-theme_override_fonts/font = ExtResource("3_3onrs")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_0jbpt")
+theme_override_font_sizes/font_size = 45
 text = "Start"
 icon = ExtResource("4_rfpqi")
 flat = true
@@ -55,8 +54,8 @@ expand_icon = true
 
 [node name="OptionButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_3onrs")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_0jbpt")
+theme_override_font_sizes/font_size = 45
 text = "Options"
 icon = ExtResource("4_rfpqi")
 flat = true
@@ -66,8 +65,8 @@ expand_icon = true
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
-theme_override_fonts/font = ExtResource("3_3onrs")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_0jbpt")
+theme_override_font_sizes/font_size = 45
 text = "Quit"
 icon = ExtResource("4_rfpqi")
 flat = true
@@ -104,24 +103,24 @@ size_flags_horizontal = 3
 [node name="Master" type="Label" parent="Options/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 5
-theme_override_fonts/font = ExtResource("2_h5yng")
-theme_override_font_sizes/font_size = 20
-text = "Master Volume"
+theme_override_fonts/font = ExtResource("3_0jbpt")
+theme_override_font_sizes/font_size = 25
+text = "Volume"
 horizontal_alignment = 1
 
 [node name="Music" type="Label" parent="Options/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 5
-theme_override_fonts/font = ExtResource("2_h5yng")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("3_0jbpt")
+theme_override_font_sizes/font_size = 25
 text = "Music"
 horizontal_alignment = 1
 
 [node name="SFX" type="Label" parent="Options/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 5
-theme_override_fonts/font = ExtResource("2_h5yng")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("3_0jbpt")
+theme_override_font_sizes/font_size = 25
 text = "Sound FX"
 horizontal_alignment = 1
 
@@ -150,11 +149,11 @@ anchor_bottom = 1.0
 offset_left = -240.0
 offset_top = -448.0
 offset_right = 240.0
-offset_bottom = -392.0
+offset_bottom = -384.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_h5yng")
-theme_override_font_sizes/font_size = 27
+theme_override_fonts/font = ExtResource("3_0jbpt")
+theme_override_font_sizes/font_size = 30
 text = "Back"
 icon = ExtResource("5_wnmy6")
 flat = true
@@ -169,13 +168,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -48.0
-offset_top = -191.5
+offset_top = -239.5
 offset_right = 64.0
-offset_bottom = -63.5
+offset_bottom = -94.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_3onrs")
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("3_0jbpt")
+theme_override_font_sizes/font_size = 120
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/death_menu.gd" id="1_0ui12"]
 [ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="2_r8ov7"]
-[ext_resource type="FontFile" uid="uid://d01ve0kjmxkw" path="res://art/BG/Brownie Stencil.woff" id="3_rowdn"]
+[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="3_5xsxo"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_ue63h"]
 
 [node name="DeathMenu" type="Control"]
@@ -29,15 +29,15 @@ alignment = 1
 
 [node name="GameOver" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_rowdn")
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("3_5xsxo")
+theme_override_font_sizes/font_size = 70
 text = "Game over :("
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_rowdn")
+theme_override_fonts/font = ExtResource("3_5xsxo")
 theme_override_font_sizes/font_size = 30
 text = "Top score: %s
 Current score: %s"
@@ -45,8 +45,8 @@ horizontal_alignment = 1
 
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_rowdn")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_5xsxo")
+theme_override_font_sizes/font_size = 42
 text = "Restart"
 icon = ExtResource("4_ue63h")
 flat = true
@@ -55,9 +55,9 @@ expand_icon = true
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_rowdn")
-theme_override_font_sizes/font_size = 30
-text = "Main Menu"
+theme_override_fonts/font = ExtResource("3_5xsxo")
+theme_override_font_sizes/font_size = 42
+text = "Main"
 icon = ExtResource("4_ue63h")
 flat = true
 icon_alignment = 1

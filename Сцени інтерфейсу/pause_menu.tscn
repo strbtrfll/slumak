@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cec7ypqolpytf"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/pause_menu.gd" id="1_25iu8"]
-[ext_resource type="FontFile" uid="uid://d01ve0kjmxkw" path="res://art/BG/Brownie Stencil.woff" id="2_5radl"]
+[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="2_t0dlb"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="3_keq5i"]
 
 [node name="PauseMenu" type="Control"]
@@ -31,16 +31,16 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5radl")
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_t0dlb")
+theme_override_font_sizes/font_size = 70
 text = "| PAUSE |"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5radl")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("2_t0dlb")
+theme_override_font_sizes/font_size = 45
 text = "Resume"
 icon = ExtResource("3_keq5i")
 flat = true
@@ -49,9 +49,9 @@ expand_icon = true
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5radl")
-theme_override_font_sizes/font_size = 30
-text = "Quit"
+theme_override_fonts/font = ExtResource("2_t0dlb")
+theme_override_font_sizes/font_size = 45
+text = "Main"
 icon = ExtResource("3_keq5i")
 flat = true
 icon_alignment = 1
