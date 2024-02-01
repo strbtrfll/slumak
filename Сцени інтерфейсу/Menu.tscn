@@ -46,7 +46,9 @@ alignment = 1
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
 focus_mode = 0
+
 theme_override_fonts/font = ExtResource("2_h5yng")
+
 theme_override_font_sizes/font_size = 30
 text = "Start"
 icon = ExtResource("4_rfpqi")
@@ -69,7 +71,9 @@ expand_icon = true
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
 focus_mode = 0
+
 theme_override_fonts/font = ExtResource("2_h5yng")
+
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 icon = ExtResource("4_rfpqi")
