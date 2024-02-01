@@ -14,7 +14,7 @@ func _on_restart_button_pressed():
 
 func _on_quit_button_pressed():
 	$UIAudio/QuitTimer.start()
-	$UIAudio/Click.play()
+	$UIAudio/BadClick.play()
 
 
 func _on_restart_timer_timeout():

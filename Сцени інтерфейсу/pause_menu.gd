@@ -20,7 +20,7 @@ func _on_resume_button_pressed():
 
 func _on_quit_button_pressed():
 	$QuitTimer.start()
-	$UIAudio/Click.play()
+	$UIAudio/BadClick.play()
 
 #Таймер виходу
 func _on_quit_timer_timeout():

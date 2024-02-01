@@ -59,7 +59,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="QuitTimer" type="Timer" parent="."]
-wait_time = 0.08
+wait_time = 0.09
 one_shot = true
 
 [node name="UIAudio" parent="." instance=ExtResource("4_6pvvf")]

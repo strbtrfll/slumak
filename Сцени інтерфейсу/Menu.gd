@@ -30,7 +30,7 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 func _on_back_button_pressed():
-	$UIAudio/Click.play()
+	$UIAudio/BadClick.play()
 	show_and_hide($VBoxContainer, $Options)
 
 func _on_master_value_changed(value):
