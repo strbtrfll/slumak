@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2q57rululc6n"]
+[gd_scene load_steps=9 format=3 uid="uid://2q57rululc6n"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://d01ve0kjmxkw" path="res://art/BG/Brownie Stencil.woff" id="3_3onrs"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_rfpqi"]
 [ext_resource type="Texture2D" uid="uid://4esr6ilr7pjy" path="res://art/UI/back.png" id="5_wnmy6"]
+[ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="8_ak3d0"]
 
 [node name="Menu" type="Control"]
 process_mode = 1
@@ -181,6 +182,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_1armb")
 
+[node name="UIAudio" parent="." instance=ExtResource("8_ak3d0")]
+
+[node name="StartTimer" type="Timer" parent="UIAudio"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
@@ -188,3 +195,4 @@ script = ExtResource("2_1armb")
 [connection signal="value_changed" from="Options/HBoxContainer/Slider/Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="Options/HBoxContainer/Slider/SFX" to="." method="_on_sfx_value_changed"]
 [connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="timeout" from="UIAudio/StartTimer" to="." method="_on_start_timer_timeout"]

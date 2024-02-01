@@ -14,10 +14,12 @@ func _ready():
 
 
 func _on_start_button_pressed():
-	toggle()
-	get_tree().change_scene_to_file("res://main.tscn")#указать путь к сцене(перетащить файл сцены в скобки())
+	$UIAudio/Click.play()
+	$UIAudio/StartTimer.start()
+	#toggle()
 
 func _on_option_button_pressed():
+	$UIAudio/Click.play()
 	show_and_hide($Options, $VBoxContainer)
 
 func show_and_hide(first, second):
@@ -27,10 +29,9 @@ func show_and_hide(first, second):
 func _on_quit_button_pressed():
 	get_tree().quit()
 
-
 func _on_back_button_pressed():
+	$UIAudio/Click.play()
 	show_and_hide($VBoxContainer, $Options)
-
 
 func _on_master_value_changed(value):
 	volume(0, value)
@@ -38,10 +39,12 @@ func _on_master_value_changed(value):
 func volume(bus_index, value):
 	AudioServer.set_bus_volume_db(bus_index, value)
 
-
 func _on_music_value_changed(value):
 	volume(1, value)
 
-
 func _on_sfx_value_changed(value):
 	volume(2, value)
+
+
+func _on_start_timer_timeout():
+	get_tree().change_scene_to_file("res://main.tscn")

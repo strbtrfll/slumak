@@ -145,10 +145,10 @@ var game_paused : bool = false:
 		get_tree().paused = game_paused
 		emit_signal("toggle_game_paused", game_paused)
 
-# Pause on Esc
-#func _input(event : InputEvent):
-#	if(event.is_action_pressed("ui_cancel")):
-#		game_paused = !game_paused
-
+#Кнопка паузи
 func _on_pause_button_pressed():
 	game_paused = true
+
+#SFX Меню паузи
+func _on_pause_menu_gui_input(event):
+	$UIAudio/Click.play()
