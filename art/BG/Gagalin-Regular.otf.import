@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bewt3623l6cbf"
-path="res://.godot/imported/Gagalin-Regular.otf-ec02517056f5d82529ae8ab141ce27c8.fontdata"
+path="res://.godot/imported/Gagalin-Regular.otf-67c12e59f3c4cc76251d5bc2a2feeb0d.fontdata"
 
 [deps]
 
-source_file="res://art/Gagalin-Regular.otf"
-dest_files=["res://.godot/imported/Gagalin-Regular.otf-ec02517056f5d82529ae8ab141ce27c8.fontdata"]
+source_file="res://art/BG/Gagalin-Regular.otf"
+dest_files=["res://.godot/imported/Gagalin-Regular.otf-67c12e59f3c4cc76251d5bc2a2feeb0d.fontdata"]
 
 [params]
 
