@@ -19,5 +19,10 @@ func _on_resume_button_pressed():
 
 
 func _on_quit_button_pressed():
+	$QuitTimer.start()
+	$UIAudio/Click.play()
+
+#Таймер виходу
+func _on_quit_timer_timeout():
 	main.game_paused = false
 	get_tree().change_scene_to_file("res://Сцени інтерфейсу/Menu.tscn")
