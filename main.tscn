@@ -54,6 +54,7 @@ offset_left = 400.0
 offset_top = 24.0
 offset_right = 456.0
 offset_bottom = 80.0
+focus_mode = 0
 icon = ExtResource("8_fpngq")
 flat = true
 icon_alignment = 1

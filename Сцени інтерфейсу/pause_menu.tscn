@@ -40,6 +40,7 @@ vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_5radl")
 theme_override_font_sizes/font_size = 30
 text = "Resume"
@@ -50,6 +51,7 @@ expand_icon = true
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_5radl")
 theme_override_font_sizes/font_size = 30
 text = "Quit"

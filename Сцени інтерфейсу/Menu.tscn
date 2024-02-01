@@ -46,6 +46,7 @@ alignment = 1
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_3onrs")
 theme_override_font_sizes/font_size = 30
 text = "Start"
@@ -56,6 +57,7 @@ expand_icon = true
 
 [node name="OptionButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_3onrs")
 theme_override_font_sizes/font_size = 30
 text = "Options"
@@ -67,6 +69,7 @@ expand_icon = true
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_3onrs")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
@@ -154,6 +157,7 @@ offset_right = 240.0
 offset_bottom = -392.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_h5yng")
 theme_override_font_sizes/font_size = 27
 text = "Back"
