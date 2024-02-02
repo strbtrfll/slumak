@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2q57rululc6n"]
+[gd_scene load_steps=10 format=3 uid="uid://2q57rululc6n"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
@@ -7,8 +7,6 @@
 [ext_resource type="FontFile" uid="uid://d01ve0kjmxkw" path="res://art/BG/Brownie Stencil.woff" id="3_3onrs"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_rfpqi"]
 [ext_resource type="Texture2D" uid="uid://4esr6ilr7pjy" path="res://art/UI/back.png" id="5_wnmy6"]
-[ext_resource type="Texture2D" uid="uid://c1bsu604p8cfj" path="res://art/Audio/on.png" id="6_lffjl"]
-[ext_resource type="Texture2D" uid="uid://declavvod2ud8" path="res://art/Audio/off.png" id="7_mvd0l"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Music.gd" id="8_gbrn1"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/SFX.gd" id="9_xphhl"]
 
@@ -128,8 +126,6 @@ size_flags_horizontal = 3
 [node name="Music" type="TextureButton" parent="Options/HBoxContainer/Button"]
 layout_mode = 2
 toggle_mode = true
-texture_normal = ExtResource("6_lffjl")
-texture_pressed = ExtResource("7_mvd0l")
 script = ExtResource("8_gbrn1")
 
 [node name="SFX" type="TextureButton" parent="Options/HBoxContainer/Button"]

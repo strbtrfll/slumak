@@ -23,12 +23,12 @@ func _ready():
 	update_button_texture()
 
 func _on_pressed():
-	global_data.isAudioMuted = not global_data.isAudioMuted
-	AudioServer.set_bus_mute(music_bus, global_data.isAudioMuted)
+	global_data.isMusicMuted = not global_data.isMusicMuted
+	AudioServer.set_bus_mute(music_bus, global_data.isMusicMuted)
 	update_button_texture()
 
 func update_button_texture():
-	if global_data.isAudioMuted:
+	if global_data.isMusicMuted:
 		self.texture_normal = load("res://art/Audio/off.png")
 	else:
 		self.texture_normal = load("res://art/Audio/on.png")
