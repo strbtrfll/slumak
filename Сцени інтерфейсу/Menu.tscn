@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://2q57rululc6n"]
+[gd_scene load_steps=10 format=3 uid="uid://2q57rululc6n"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
 [ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="2_h5yng"]
 [ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="2_ruhv4"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_rfpqi"]
+[ext_resource type="Script" path="res://Сцени інтерфейсу/Music.gd" id="5_f7vup"]
 [ext_resource type="Texture2D" uid="uid://4esr6ilr7pjy" path="res://art/UI/back.png" id="5_wnmy6"]
+[ext_resource type="Script" path="res://Сцени інтерфейсу/SFX.gd" id="6_1fy1v"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="8_ak3d0"]
 
 [node name="Menu" type="Control"]
@@ -104,14 +106,6 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Master" type="Label" parent="Options/HBoxContainer/Labels"]
-layout_mode = 2
-size_flags_vertical = 5
-theme_override_fonts/font = ExtResource("2_h5yng")
-theme_override_font_sizes/font_size = 20
-text = "Master Volume"
-horizontal_alignment = 1
-
 [node name="Music" type="Label" parent="Options/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 5
@@ -132,16 +126,13 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Master" type="HSlider" parent="Options/HBoxContainer/Slider"]
+[node name="Music" type="TextureButton" parent="Options/HBoxContainer/Slider"]
 layout_mode = 2
-size_flags_vertical = 2
+script = ExtResource("5_f7vup")
 
-[node name="Music" type="HSlider" parent="Options/HBoxContainer/Slider"]
+[node name="SFX" type="TextureButton" parent="Options/HBoxContainer/Slider"]
 layout_mode = 2
-size_flags_vertical = 2
-
-[node name="SFX" type="HSlider" parent="Options/HBoxContainer/Slider"]
-layout_mode = 2
+script = ExtResource("6_1fy1v")
 
 [node name="BackButton" type="Button" parent="Options"]
 layout_mode = 1
@@ -194,8 +185,7 @@ one_shot = true
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="value_changed" from="Options/HBoxContainer/Slider/Master" to="." method="_on_master_value_changed"]
-[connection signal="value_changed" from="Options/HBoxContainer/Slider/Music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="Options/HBoxContainer/Slider/SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="Options/HBoxContainer/Slider/Music" to="Options/HBoxContainer/Slider/Music" method="_on_pressed"]
+[connection signal="pressed" from="Options/HBoxContainer/Slider/SFX" to="Options/HBoxContainer/Slider/SFX" method="_on_pressed"]
 [connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="timeout" from="UIAudio/StartTimer" to="." method="_on_start_timer_timeout"]

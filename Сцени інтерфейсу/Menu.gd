@@ -48,3 +48,7 @@ func _on_sfx_value_changed(value):
 
 func _on_start_timer_timeout():
 	get_tree().change_scene_to_file("res://main.tscn")
+
+
+func _on_sfx_pressed():
+	pass # Replace with function body.
