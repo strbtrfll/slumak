@@ -26,9 +26,16 @@ func _on_pressed():
 	global_data.isAudioMuted = not global_data.isAudioMuted
 	AudioServer.set_bus_mute(sfx_bus, global_data.isAudioMuted)
 	update_button_texture()
+	play_UI()
 
 func update_button_texture():
 	if global_data.isAudioMuted:
 		self.texture_normal = load("res://art/Audio/off.png")
 	else:
 		self.texture_normal = load("res://art/Audio/on.png")
+
+func play_UI():
+	if global_data.isMusicMuted:
+		$"../../../../UIAudio/BadClick".play()
+	else:
+		$"../../../../UIAudio/Click".play()

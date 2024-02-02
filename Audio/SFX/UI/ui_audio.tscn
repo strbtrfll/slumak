@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://ces00klq1ru2j"]
+[gd_scene load_steps=4 format=3 uid="uid://ces00klq1ru2j"]
 
 [ext_resource type="AudioStream" uid="uid://beiy2h3s1isc5" path="res://Audio/SFX/UI/Click_1.wav" id="1_lmdwu"]
 [ext_resource type="AudioStream" uid="uid://bdd5vwev445ne" path="res://Audio/SFX/UI/Click_2.wav" id="2_4nvir"]
 
+[sub_resource type="GDScript" id="GDScript_apft5"]
+script/source = "extends Node
+class_name UI
+
+
+func playClick():
+	$Click.play()
+"
+
 [node name="UIAudio" type="Node"]
+script = SubResource("GDScript_apft5")
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_lmdwu")

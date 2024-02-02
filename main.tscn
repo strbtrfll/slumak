@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsn00mddxc7h7"]
+[gd_scene load_steps=15 format=3 uid="uid://dsn00mddxc7h7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d54m"]
 [ext_resource type="PackedScene" uid="uid://5rb7rstf5wpt" path="res://Сцени слимаків/clizi.tscn" id="1_3nlhi"]
@@ -10,6 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="6_oqtlv"]
 [ext_resource type="Texture2D" uid="uid://bprg2fnwbnf7n" path="res://art/UI/pause.png" id="8_fpngq"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="10_sggd6"]
+
+[sub_resource type="GDScript" id="GDScript_176t4"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$\"../SpawnOrange\""
 
 [sub_resource type="Curve2D" id="Curve2D_syy3m"]
 _data = {
@@ -62,6 +70,7 @@ expand_icon = true
 
 [node name="SpawnBlack" type="Timer" parent="."]
 autostart = true
+script = SubResource("GDScript_176t4")
 
 [node name="SpawnOrange" type="Timer" parent="."]
 wait_time = 5.0
