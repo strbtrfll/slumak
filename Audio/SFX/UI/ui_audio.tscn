@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ces00klq1ru2j"]
+
+[ext_resource type="AudioStream" uid="uid://beiy2h3s1isc5" path="res://Audio/SFX/UI/Click_1.wav" id="1_lmdwu"]
+[ext_resource type="AudioStream" uid="uid://bdd5vwev445ne" path="res://Audio/SFX/UI/Click_2.wav" id="2_4nvir"]
+
+[node name="UIAudio" type="Node"]
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_lmdwu")
+panning_strength = 0.0
+bus = &"UI"
+
+[node name="BadClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4nvir")
+panning_strength = 0.0
+bus = &"UI"

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
-[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/Gagalin-Regular.otf" id="2_h5yng"]
+[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="2_h5yng"]
 [ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="2_ruhv4"]
-[ext_resource type="FontFile" uid="uid://d01ve0kjmxkw" path="res://art/BG/Brownie Stencil.woff" id="3_3onrs"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_rfpqi"]
 [ext_resource type="Texture2D" uid="uid://4esr6ilr7pjy" path="res://art/UI/back.png" id="5_wnmy6"]
+
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Music.gd" id="8_gbrn1"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/SFX.gd" id="9_xphhl"]
 
@@ -47,7 +47,10 @@ alignment = 1
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
-theme_override_fonts/font = ExtResource("3_3onrs")
+focus_mode = 0
+
+theme_override_fonts/font = ExtResource("2_h5yng")
+
 theme_override_font_sizes/font_size = 30
 text = "Start"
 icon = ExtResource("4_rfpqi")
@@ -57,7 +60,8 @@ expand_icon = true
 
 [node name="OptionButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_3onrs")
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_h5yng")
 theme_override_font_sizes/font_size = 30
 text = "Options"
 icon = ExtResource("4_rfpqi")
@@ -68,7 +72,10 @@ expand_icon = true
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
-theme_override_fonts/font = ExtResource("3_3onrs")
+focus_mode = 0
+
+theme_override_fonts/font = ExtResource("2_h5yng")
+
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 icon = ExtResource("4_rfpqi")
@@ -146,6 +153,7 @@ offset_right = 240.0
 offset_bottom = -392.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("2_h5yng")
 theme_override_font_sizes/font_size = 27
 text = "Back"
@@ -162,17 +170,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -48.0
-offset_top = -191.5
+offset_top = -207.5
 offset_right = 64.0
-offset_bottom = -63.5
+offset_bottom = -67.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_3onrs")
+theme_override_fonts/font = ExtResource("2_h5yng")
 theme_override_font_sizes/font_size = 100
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_1armb")
+
+[node name="UIAudio" parent="." instance=ExtResource("8_ak3d0")]
+
+[node name="StartTimer" type="Timer" parent="UIAudio"]
+wait_time = 0.05
+one_shot = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
@@ -180,3 +194,4 @@ script = ExtResource("2_1armb")
 [connection signal="pressed" from="Options/HBoxContainer/Button/Music" to="Options/HBoxContainer/Button/Music" method="_on_pressed"]
 [connection signal="pressed" from="Options/HBoxContainer/Button/SFX" to="Options/HBoxContainer/Button/SFX" method="_on_pressed"]
 [connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="timeout" from="UIAudio/StartTimer" to="." method="_on_start_timer_timeout"]

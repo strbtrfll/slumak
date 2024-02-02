@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cec7ypqolpytf"]
+[gd_scene load_steps=5 format=3 uid="uid://cec7ypqolpytf"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/pause_menu.gd" id="1_25iu8"]
-[ext_resource type="FontFile" uid="uid://d01ve0kjmxkw" path="res://art/BG/Brownie Stencil.woff" id="2_5radl"]
+[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="2_7s507"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="3_keq5i"]
+[ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="4_6pvvf"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -31,7 +32,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5radl")
+theme_override_fonts/font = ExtResource("2_7s507")
 theme_override_font_sizes/font_size = 64
 text = "| PAUSE |"
 horizontal_alignment = 1
@@ -39,7 +40,10 @@ vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5radl")
+focus_mode = 0
+
+theme_override_fonts/font = ExtResource("2_7s507")
+
 theme_override_font_sizes/font_size = 30
 text = "Resume"
 icon = ExtResource("3_keq5i")
@@ -49,7 +53,10 @@ expand_icon = true
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5radl")
+focus_mode = 0
+
+theme_override_fonts/font = ExtResource("2_7s507")
+
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 icon = ExtResource("3_keq5i")
@@ -57,5 +64,12 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="QuitTimer" type="Timer" parent="."]
+wait_time = 0.09
+one_shot = true
+
+[node name="UIAudio" parent="." instance=ExtResource("4_6pvvf")]
+
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="QuitTimer" to="." method="_on_quit_timer_timeout"]
