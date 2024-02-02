@@ -18,6 +18,7 @@ config/icon="res://art/icon.svg"
 [autoload]
 
 Save="*res://SaveLoadHighScore.gd"
+GlobalData="*res://GlobalData.gd"
 
 [display]
 

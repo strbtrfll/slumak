@@ -135,8 +135,6 @@ script = ExtResource("8_gbrn1")
 [node name="SFX" type="TextureButton" parent="Options/HBoxContainer/Button"]
 layout_mode = 2
 toggle_mode = true
-texture_normal = ExtResource("6_lffjl")
-texture_pressed = ExtResource("7_mvd0l")
 script = ExtResource("9_xphhl")
 
 [node name="BackButton" type="Button" parent="Options"]
