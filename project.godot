@@ -24,7 +24,6 @@ GlobalData="*res://GlobalData.gd"
 
 window/size/viewport_width=480
 window/size/viewport_height=1024
-window/size/mode=3
 window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1

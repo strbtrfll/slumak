@@ -11,11 +11,7 @@ func _ready():
 #Кожен кадр/рух
 func _process(delta):
 	# Двигаем объект в текущем направлении
-	if timer > randf_range(60, 250):
-		velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed 
-		timer = 0
 	linear_velocity = velocity * delta
-	timer = timer+1
 
 #Клік
 func _on_input_event(viewport, event, shape_idx):
@@ -26,8 +22,9 @@ func _on_input_event(viewport, event, shape_idx):
 
 #Відштовхування
 func _on_body_entered(body):
-	velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * 2000
-	timer = 0
+	velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
+	if body is StaticBody2D:
+		linear_velocity = -linear_velocity
 
 #Таймер смерті
 func _on_death_timer_timeout():
