@@ -45,6 +45,8 @@ func _on_input_event(viewport, event, shape_idx):
 func _on_body_entered(body):
 	velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * 12
 	timer = 0
+	if body is StaticBody2D:
+		linear_velocity = -linear_velocity
 
 #Таймер смерті
 func _on_death_timer_timeout():

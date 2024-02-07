@@ -92,7 +92,7 @@ func _on_child_exiting_tree(node):
 
 #Кінець гри
 func game_over():
-	if amount >  20:
+	if amount >  30:
 		get_tree().change_scene_to_file("res://Сцени інтерфейсу/death_menu.tscn")
 	if Save.high_score < Save.score:
 		Save.high_score = Save.score
