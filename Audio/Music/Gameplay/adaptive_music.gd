@@ -2,12 +2,14 @@ extends Node
 
 var beatCount = 0
 var randNumb = 0
+
+
 func _ready():
 	$BeatTimer.start()
 	$BarTimer.start()
 	$"Сore/Drums".play()
 
-
+#Кожен біт
 func _on_timer_timeout():
 	beatCount += 1
 	
@@ -18,25 +20,25 @@ func _on_timer_timeout():
 		$"Сore/SynthBass".play()
 		beatCount = 0
 
-
+#Конежен бар
 func _on_bar_timer_timeout():
-	randNumb += randi_range(1,10)
-	random_debug()
+	randNumb = randi_range(1,10)
 	
 	random_abmience_pattern()
 	random_melody_pattern()
+	bridge()
 	
 	print(randNumb)
 
-func random_debug():
-	if randNumb >= 11:
-		randNumb = randi_range(1,10)
 
 func random_abmience_pattern():
-	if randNumb <= 5:
+	if randNumb <= 4:
 		$"Сore/Amb".stop()
-
 func random_melody_pattern():
-	if randNumb <= 8:
+	if randNumb <= 7:
 		$"Сore/Melody".stop()
-
+func bridge():
+	if randNumb == 10:
+		$"Сore/Drums".stop()
+		$"Сore/Melody".stop()
+		$"Сore/Amb".stop()
