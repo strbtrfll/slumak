@@ -1,0 +1,89 @@
+[gd_scene load_steps=19 format=3 uid="uid://cnfgw3cjc8sgn"]
+
+[ext_resource type="Script" path="res://Audio/Music/Gameplay/adaptive_music.gd" id="1_4v2h8"]
+[ext_resource type="AudioStream" uid="uid://cqjfi5mgcrn2" path="res://Audio/Music/Gameplay/Drums/Core_Drums_1.wav" id="2_c8wd6"]
+[ext_resource type="AudioStream" uid="uid://bc5bmhmpebeu" path="res://Audio/Music/Gameplay/Drums/Core_Drums_2.wav" id="3_xhii0"]
+[ext_resource type="AudioStream" uid="uid://dk5kmdcfmnbat" path="res://Audio/Music/Gameplay/Drums/Core_Drums_3.wav" id="4_p5us8"]
+[ext_resource type="AudioStream" uid="uid://yf2wpm7jn8mh" path="res://Audio/Music/Gameplay/Drums/Core_Drums_4.wav" id="5_b6ct4"]
+[ext_resource type="AudioStream" uid="uid://bi22imqbwj4ky" path="res://Audio/Music/Gameplay/Amb/Core_Amb_1.wav" id="6_3wkjj"]
+[ext_resource type="AudioStream" uid="uid://st5v73w0ey4" path="res://Audio/Music/Gameplay/Amb/Core_Amb_2.wav" id="7_1dihg"]
+[ext_resource type="AudioStream" uid="uid://b6tnbk4bwcd7d" path="res://Audio/Music/Gameplay/Melody/Core_Melody_1.wav" id="8_kof5e"]
+[ext_resource type="AudioStream" uid="uid://b6aqf0fymocw4" path="res://Audio/Music/Gameplay/Melody/Core_Melody_2.wav" id="9_w22jc"]
+[ext_resource type="AudioStream" uid="uid://c0umnatavf80w" path="res://Audio/Music/Gameplay/Melody/Core_Melody_3.wav" id="10_ebwb4"]
+[ext_resource type="AudioStream" uid="uid://dq1vbkrntea2q" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_1.wav" id="11_s1hhq"]
+[ext_resource type="AudioStream" uid="uid://djkynpxkoe17x" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_2.wav" id="12_voimv"]
+[ext_resource type="AudioStream" uid="uid://x0yuna1iylm4" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_3.wav" id="13_vv1gs"]
+[ext_resource type="AudioStream" uid="uid://y2qqt3r264jv" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_4.wav" id="14_basot"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pg1v3"]
+playback_mode = 1
+streams_count = 4
+stream_0/stream = ExtResource("2_c8wd6")
+stream_0/weight = 50.0
+stream_1/stream = ExtResource("3_xhii0")
+stream_1/weight = 25.0
+stream_2/stream = ExtResource("4_p5us8")
+stream_2/weight = 25.0
+stream_3/stream = ExtResource("5_b6ct4")
+stream_3/weight = 25.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4b1lb"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("6_3wkjj")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_1dihg")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f0dgv"]
+playback_mode = 1
+streams_count = 3
+stream_0/stream = ExtResource("8_kof5e")
+stream_0/weight = 50.0
+stream_1/stream = ExtResource("9_w22jc")
+stream_1/weight = 25.0
+stream_2/stream = ExtResource("10_ebwb4")
+stream_2/weight = 25.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_omhwf"]
+playback_mode = 1
+streams_count = 4
+stream_0/stream = ExtResource("11_s1hhq")
+stream_0/weight = 60.0
+stream_1/stream = ExtResource("12_voimv")
+stream_1/weight = 50.0
+stream_2/stream = ExtResource("13_vv1gs")
+stream_2/weight = 25.0
+stream_3/stream = ExtResource("14_basot")
+stream_3/weight = 25.0
+
+[node name="AdaptiveMusic" type="Node"]
+script = ExtResource("1_4v2h8")
+
+[node name="BeatTimer" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="BarTimer" type="Timer" parent="."]
+wait_time = 9.6
+
+[node name="Сore" type="Node" parent="."]
+
+[node name="Drums" type="AudioStreamPlayer2D" parent="Сore"]
+stream = SubResource("AudioStreamRandomizer_pg1v3")
+bus = &"Music"
+
+[node name="Amb" type="AudioStreamPlayer2D" parent="Сore"]
+stream = SubResource("AudioStreamRandomizer_4b1lb")
+bus = &"Music"
+
+[node name="Melody" type="AudioStreamPlayer2D" parent="Сore"]
+stream = SubResource("AudioStreamRandomizer_f0dgv")
+bus = &"Music"
+
+[node name="SynthBass" type="AudioStreamPlayer2D" parent="Сore"]
+stream = SubResource("AudioStreamRandomizer_omhwf")
+bus = &"Music"
+
+[connection signal="timeout" from="BeatTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BarTimer" to="." method="_on_bar_timer_timeout"]
+[connection signal="finished" from="Сore/Drums" to="." method="_on_demo_track_finished"]
