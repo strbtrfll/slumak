@@ -1,19 +1,19 @@
 [gd_scene load_steps=19 format=3 uid="uid://cnfgw3cjc8sgn"]
 
 [ext_resource type="Script" path="res://Audio/Music/Gameplay/adaptive_music.gd" id="1_4v2h8"]
-[ext_resource type="AudioStream" uid="uid://cqjfi5mgcrn2" path="res://Audio/Music/Gameplay/Drums/Core_Drums_1.wav" id="2_c8wd6"]
-[ext_resource type="AudioStream" uid="uid://bc5bmhmpebeu" path="res://Audio/Music/Gameplay/Drums/Core_Drums_2.wav" id="3_xhii0"]
-[ext_resource type="AudioStream" uid="uid://dk5kmdcfmnbat" path="res://Audio/Music/Gameplay/Drums/Core_Drums_3.wav" id="4_p5us8"]
-[ext_resource type="AudioStream" uid="uid://yf2wpm7jn8mh" path="res://Audio/Music/Gameplay/Drums/Core_Drums_4.wav" id="5_b6ct4"]
-[ext_resource type="AudioStream" uid="uid://bi22imqbwj4ky" path="res://Audio/Music/Gameplay/Amb/Core_Amb_1.wav" id="6_3wkjj"]
-[ext_resource type="AudioStream" uid="uid://st5v73w0ey4" path="res://Audio/Music/Gameplay/Amb/Core_Amb_2.wav" id="7_1dihg"]
-[ext_resource type="AudioStream" uid="uid://b6tnbk4bwcd7d" path="res://Audio/Music/Gameplay/Melody/Core_Melody_1.wav" id="8_kof5e"]
-[ext_resource type="AudioStream" uid="uid://b6aqf0fymocw4" path="res://Audio/Music/Gameplay/Melody/Core_Melody_2.wav" id="9_w22jc"]
-[ext_resource type="AudioStream" uid="uid://c0umnatavf80w" path="res://Audio/Music/Gameplay/Melody/Core_Melody_3.wav" id="10_ebwb4"]
-[ext_resource type="AudioStream" uid="uid://dq1vbkrntea2q" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_1.wav" id="11_s1hhq"]
-[ext_resource type="AudioStream" uid="uid://djkynpxkoe17x" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_2.wav" id="12_voimv"]
-[ext_resource type="AudioStream" uid="uid://x0yuna1iylm4" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_3.wav" id="13_vv1gs"]
-[ext_resource type="AudioStream" uid="uid://y2qqt3r264jv" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_4.wav" id="14_basot"]
+[ext_resource type="AudioStream" uid="uid://dj2hbrw5nhsud" path="res://Audio/Music/Gameplay/Drums/Core_Drums_1.wav" id="2_c8wd6"]
+[ext_resource type="AudioStream" uid="uid://ddkjqrcftg1e6" path="res://Audio/Music/Gameplay/Drums/Core_Drums_2.wav" id="3_xhii0"]
+[ext_resource type="AudioStream" uid="uid://84ekf0kbgy8r" path="res://Audio/Music/Gameplay/Drums/Core_Drums_3.wav" id="4_p5us8"]
+[ext_resource type="AudioStream" uid="uid://dsphtat76dprf" path="res://Audio/Music/Gameplay/Drums/Core_Drums_4.wav" id="5_b6ct4"]
+[ext_resource type="AudioStream" uid="uid://cbj56pcilejpk" path="res://Audio/Music/Gameplay/Amb/Core_Amb_1.wav" id="6_3wkjj"]
+[ext_resource type="AudioStream" uid="uid://n7yk4686jyqj" path="res://Audio/Music/Gameplay/Amb/Core_Amb_2.wav" id="7_1dihg"]
+[ext_resource type="AudioStream" uid="uid://cfeonjj4l1kjl" path="res://Audio/Music/Gameplay/Melody/Core_Melody_1.wav" id="8_kof5e"]
+[ext_resource type="AudioStream" uid="uid://clmq46ywx5i66" path="res://Audio/Music/Gameplay/Melody/Core_Melody_2.wav" id="9_w22jc"]
+[ext_resource type="AudioStream" uid="uid://dgj5bt6522736" path="res://Audio/Music/Gameplay/Melody/Core_Melody_3.wav" id="10_ebwb4"]
+[ext_resource type="AudioStream" uid="uid://nbmjrunr34qh" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_1.wav" id="11_s1hhq"]
+[ext_resource type="AudioStream" uid="uid://cobdgtx6l1ewh" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_2.wav" id="12_voimv"]
+[ext_resource type="AudioStream" uid="uid://bovk1tbt4plud" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_3.wav" id="13_vv1gs"]
+[ext_resource type="AudioStream" uid="uid://pr3lnmb8awib" path="res://Audio/Music/Gameplay/SynthBass/Core_SynthBass_4.wav" id="14_basot"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pg1v3"]
 playback_mode = 1
@@ -31,9 +31,9 @@ stream_3/weight = 25.0
 playback_mode = 1
 streams_count = 2
 stream_0/stream = ExtResource("6_3wkjj")
-stream_0/weight = 1.0
+stream_0/weight = 50.0
 stream_1/stream = ExtResource("7_1dihg")
-stream_1/weight = 1.0
+stream_1/weight = 25.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f0dgv"]
 playback_mode = 1
@@ -70,19 +70,27 @@ wait_time = 9.6
 
 [node name="Drums" type="AudioStreamPlayer2D" parent="Сore"]
 stream = SubResource("AudioStreamRandomizer_pg1v3")
-bus = &"Music"
+panning_strength = 0.0
+bus = &"RandomMusic"
 
 [node name="Amb" type="AudioStreamPlayer2D" parent="Сore"]
 stream = SubResource("AudioStreamRandomizer_4b1lb")
-bus = &"Music"
+panning_strength = 0.0
+bus = &"RandomMusic"
 
 [node name="Melody" type="AudioStreamPlayer2D" parent="Сore"]
 stream = SubResource("AudioStreamRandomizer_f0dgv")
-bus = &"Music"
+panning_strength = 0.0
+bus = &"RandomMusic"
 
 [node name="SynthBass" type="AudioStreamPlayer2D" parent="Сore"]
 stream = SubResource("AudioStreamRandomizer_omhwf")
-bus = &"Music"
+panning_strength = 0.0
+bus = &"RandomMusic"
+
+[node name="Opening" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_s1hhq")
+bus = &"RandomMusic"
 
 [connection signal="timeout" from="BeatTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="BarTimer" to="." method="_on_bar_timer_timeout"]
