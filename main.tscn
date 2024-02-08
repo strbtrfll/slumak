@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsn00mddxc7h7"]
+[gd_scene load_steps=16 format=3 uid="uid://dsn00mddxc7h7"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d54m"]
 [ext_resource type="PackedScene" uid="uid://5rb7rstf5wpt" path="res://Сцени слимаків/clizi.tscn" id="1_3nlhi"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="6_oqtlv"]
 [ext_resource type="Texture2D" uid="uid://bprg2fnwbnf7n" path="res://art/UI/pause.png" id="8_fpngq"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="10_sggd6"]
+[ext_resource type="PackedScene" uid="uid://cnfgw3cjc8sgn" path="res://Audio/Music/Gameplay/adaptive_music.tscn" id="11_6uokp"]
 
 [sub_resource type="GDScript" id="GDScript_176t4"]
 script/source = "extends Timer
@@ -119,6 +120,8 @@ position = Vector2(256, 1108)
 shape = SubResource("RectangleShape2D_qm77u")
 
 [node name="UIAudio" parent="." instance=ExtResource("10_sggd6")]
+
+[node name="AdaptiveMusic" parent="." instance=ExtResource("11_6uokp")]
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="gui_input" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_gui_input"]
