@@ -17,7 +17,7 @@ bounce = 1.0
 [sub_resource type="GDScript" id="GDScript_6shin"]
 script/source = "extends RigidBody2D
 
-var speed = 10
+var speed = 20
 var timer = 0
 var velocity = Vector2(randf_range(-10, 10), randf_range(-10, 10)) * speed
 
@@ -153,6 +153,7 @@ stream_2/weight = 1.0
 
 [node name="Clizi" type="RigidBody2D"]
 top_level = true
+collision_priority = 2.0
 input_pickable = true
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_j60g8")

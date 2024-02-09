@@ -16,6 +16,7 @@ var amount = 0 #кількість cлимаків
 #Виконується при запуску сцени
 func _ready():
 	Save.score = 0
+	$HUD/Label/AnimationPlayer.play("new_animation")
 
 #Cпавн зеленого
 func _on_spawn_timer_timeout():
@@ -92,7 +93,7 @@ func _on_child_exiting_tree(node):
 
 #Кінець гри
 func game_over():
-	if amount >  30:
+	if amount >  25:
 		get_tree().change_scene_to_file("res://Сцени інтерфейсу/death_menu.tscn")
 	if Save.high_score < Save.score:
 		Save.high_score = Save.score
@@ -107,6 +108,9 @@ func _process(delta):
 	speedup_3()
 	speedup_4()
 	speedup_5()
+	if Save.score==1:
+		$HUD/Label.visible=false
+
 
 #Пришвидшення гри
 func speedup_1():
@@ -134,6 +138,7 @@ func speedup_5():
 		$SpawnOrange.wait_time = 2
 		BlackRandomSpawn = randf_range(0, 35)
 
+
 #vizav pause menu
 signal toggle_game_paused(is_paused : bool)
 
@@ -148,6 +153,9 @@ var game_paused : bool = false:
 #Кнопка паузи
 func _on_pause_button_pressed():
 	game_paused = true
+	$PauseButton.hide()
+
+
 
 #SFX Меню паузи
 func _on_pause_menu_gui_input(event):

@@ -49,7 +49,6 @@ texture = ExtResource("6_oqtlv")
 expand_mode = 1
 
 [node name="HUD" parent="." instance=ExtResource("4_lhxxa")]
-process_mode = 2
 layer = -1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -57,17 +56,6 @@ layer = -1
 [node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("main") instance=ExtResource("5_au65c")]
 anchors_preset = -1
 main = NodePath("../..")
-
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 400.0
-offset_top = 24.0
-offset_right = 456.0
-offset_bottom = 80.0
-focus_mode = 0
-icon = ExtResource("8_fpngq")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
 [node name="SpawnBlack" type="Timer" parent="."]
 autostart = true
@@ -123,10 +111,21 @@ shape = SubResource("RectangleShape2D_qm77u")
 
 [node name="AdaptiveMusic" parent="." instance=ExtResource("11_6uokp")]
 
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 400.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 80.0
+focus_mode = 0
+icon = ExtResource("8_fpngq")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="gui_input" from="CanvasLayer/PauseMenu" to="." method="_on_pause_menu_gui_input"]
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="timeout" from="SpawnBlack" to="." method="_on_spawn_black_timeout"]
 [connection signal="timeout" from="SpawnOrange" to="." method="_on_spawn_orange_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="SpawnBlue" to="." method="_on_spawn_blue_timeout"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
