@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2q57rululc6n"]
+[gd_scene load_steps=11 format=3 uid="uid://2q57rululc6n"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://4esr6ilr7pjy" path="res://art/UI/back.png" id="5_wnmy6"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/SFX.gd" id="6_1fy1v"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="8_ak3d0"]
+[ext_resource type="AudioStream" uid="uid://cvgc26t0j6p1h" path="res://Audio/Music/Menu/MainMenu.wav" id="10_i48uv"]
 
 [node name="Menu" type="Control"]
 process_mode = 1
@@ -181,6 +182,11 @@ script = ExtResource("2_1armb")
 [node name="StartTimer" type="Timer" parent="UIAudio"]
 wait_time = 0.05
 one_shot = true
+
+[node name="MainMenuTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_i48uv")
+autoplay = true
+bus = &"RandomMusic"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
