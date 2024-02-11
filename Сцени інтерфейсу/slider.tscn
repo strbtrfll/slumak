@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://brwktnd0lerd0"]
+
+[ext_resource type="Script" path="res://Сцени інтерфейсу/Music.gd" id="1_ya3x8"]
+[ext_resource type="Script" path="res://Сцени інтерфейсу/SFX.gd" id="2_tamit"]
+
+[node name="Slider" type="VBoxContainer"]
+size_flags_horizontal = 3
+
+[node name="Music" type="TextureButton" parent="."]
+layout_mode = 2
+script = ExtResource("1_ya3x8")
+
+[node name="SFX" type="TextureButton" parent="."]
+layout_mode = 2
+script = ExtResource("2_tamit")
+
+[connection signal="pressed" from="Music" to="Music" method="_on_pressed"]
+[connection signal="pressed" from="SFX" to="SFX" method="_on_pressed"]

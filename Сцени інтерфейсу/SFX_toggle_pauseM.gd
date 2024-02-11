@@ -28,6 +28,6 @@ func update_button_texture():
 
 func play_UI():
 	if global_data.isMusicMuted:
-		$"../../../../UIAudio/BadClick".play()
+		$"../../../UIAudio/BadClick".play()
 	else:
-		$"../../../../UIAudio/Click".play()
+		$"../../../UIAudio/Click".play()
