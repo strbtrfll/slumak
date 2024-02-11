@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cec7ypqolpytf"]
+[gd_scene load_steps=7 format=3 uid="uid://cec7ypqolpytf"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/pause_menu.gd" id="1_25iu8"]
 [ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="2_7s507"]
+[ext_resource type="Script" path="res://Сцени інтерфейсу/Music_toggle_pauseM.gd" id="2_q53c2"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="3_keq5i"]
+[ext_resource type="Script" path="res://Сцени інтерфейсу/SFX_toggle_pauseM.gd" id="3_vwbu2"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="4_6pvvf"]
 
 [node name="PauseMenu" type="Control"]
@@ -17,15 +19,9 @@ script = ExtResource("1_25iu8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = -512.0
-offset_right = 240.0
-offset_bottom = 512.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -34,9 +30,37 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_7s507")
 theme_override_font_sizes/font_size = 64
-text = "| PAUSE |"
+text = "PAUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7s507")
+theme_override_font_sizes/font_size = 24
+text = "Music"
+
+[node name="SFXLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7s507")
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+
+[node name="Slider" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Music" type="TextureButton" parent="VBoxContainer/Slider"]
+z_as_relative = false
+layout_mode = 2
+script = ExtResource("2_q53c2")
+
+[node name="SFX" type="TextureButton" parent="VBoxContainer/Slider"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_vwbu2")
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -66,6 +90,8 @@ one_shot = true
 
 [node name="UIAudio" parent="." instance=ExtResource("4_6pvvf")]
 
+[connection signal="pressed" from="VBoxContainer/Slider/Music" to="VBoxContainer/Slider/Music" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Slider/SFX" to="VBoxContainer/Slider/SFX" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="timeout" from="QuitTimer" to="." method="_on_quit_timer_timeout"]

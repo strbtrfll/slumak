@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://2q57rululc6n"]
+[gd_scene load_steps=10 format=3 uid="uid://2q57rululc6n"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
 [ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="2_h5yng"]
 [ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="2_ruhv4"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_rfpqi"]
-[ext_resource type="Script" path="res://Сцени інтерфейсу/Music.gd" id="5_f7vup"]
 [ext_resource type="Texture2D" uid="uid://4esr6ilr7pjy" path="res://art/UI/back.png" id="5_wnmy6"]
-[ext_resource type="Script" path="res://Сцени інтерфейсу/SFX.gd" id="6_1fy1v"]
+[ext_resource type="PackedScene" uid="uid://brwktnd0lerd0" path="res://Сцени інтерфейсу/slider.tscn" id="5_xafo5"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="8_ak3d0"]
 [ext_resource type="AudioStream" uid="uid://cvgc26t0j6p1h" path="res://Audio/Music/Menu/MainMenu.wav" id="10_i48uv"]
 
@@ -123,17 +122,8 @@ theme_override_font_sizes/font_size = 20
 text = "Sound FX"
 horizontal_alignment = 1
 
-[node name="Slider" type="VBoxContainer" parent="Options/HBoxContainer"]
+[node name="Slider" parent="Options/HBoxContainer" instance=ExtResource("5_xafo5")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Music" type="TextureButton" parent="Options/HBoxContainer/Slider"]
-layout_mode = 2
-script = ExtResource("5_f7vup")
-
-[node name="SFX" type="TextureButton" parent="Options/HBoxContainer/Slider"]
-layout_mode = 2
-script = ExtResource("6_1fy1v")
 
 [node name="BackButton" type="Button" parent="Options"]
 layout_mode = 1
@@ -191,7 +181,5 @@ bus = &"RandomMusic"
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Options/HBoxContainer/Slider/Music" to="Options/HBoxContainer/Slider/Music" method="_on_pressed"]
-[connection signal="pressed" from="Options/HBoxContainer/Slider/SFX" to="Options/HBoxContainer/Slider/SFX" method="_on_pressed"]
 [connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="timeout" from="UIAudio/StartTimer" to="." method="_on_start_timer_timeout"]
