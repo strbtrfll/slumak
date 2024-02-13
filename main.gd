@@ -108,7 +108,7 @@ func _process(delta):
 	speedup_3()
 	speedup_4()
 	speedup_5()
-	if Save.score==1:
+	if Save.score >= 1:
 		$HUD/Label.visible=false
 
 
@@ -154,6 +154,7 @@ var game_paused : bool = false:
 func _on_pause_button_pressed():
 	game_paused = true
 	$PauseButton.hide()
+	$HUD/Label.hide()
 
 
 

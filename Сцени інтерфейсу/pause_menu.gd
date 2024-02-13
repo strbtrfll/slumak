@@ -3,6 +3,7 @@ extends Control
 @export var main : Main
 
 @onready var Buton = $"../../PauseButton"
+@onready var hud = $"../../HUD/Label"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +20,7 @@ func _on_main_toggle_game_paused(is_paused : bool):
 func _on_resume_button_pressed():
 	main.game_paused = false
 	Buton.show()
+	hud.show()
 
 
 func _on_quit_button_pressed():
