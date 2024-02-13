@@ -17,6 +17,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_25iu8")
 
+[node name="MusicLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 136.0
+offset_top = 472.0
+offset_right = 616.0
+offset_bottom = 502.0
+theme_override_fonts/font = ExtResource("2_7s507")
+theme_override_font_sizes/font_size = 24
+text = "Music"
+
+[node name="SFXLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 136.0
+offset_top = 504.0
+offset_right = 616.0
+offset_bottom = 534.0
+theme_override_fonts/font = ExtResource("2_7s507")
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -33,18 +53,6 @@ theme_override_font_sizes/font_size = 64
 text = "PAUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="MusicLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_7s507")
-theme_override_font_sizes/font_size = 24
-text = "Music"
-
-[node name="SFXLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_7s507")
-theme_override_font_sizes/font_size = 24
-text = "SFX"
 
 [node name="Slider" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
