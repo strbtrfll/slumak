@@ -11,7 +11,7 @@ func toggle():
 
 func _ready():
 	$VBoxContainer/StartButton.grab_focus()
-
+	
 
 func _on_start_button_pressed():
 	$UIAudio/Click.play()

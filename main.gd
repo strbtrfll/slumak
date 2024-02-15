@@ -74,7 +74,9 @@ func _on_spawn_black_timeout():
 		blacktime = 0
 		amount += 1 
 
+#Спавн cинього
 func _on_spawn_blue_timeout():
+	
 	var blueslime = blue.instantiate()
 	var slime_spawn_location4 = get_node("SlimePath/SlimeSpawnLocation")
 	slime_spawn_location4.progress_ratio = randf()
@@ -85,6 +87,7 @@ func _on_spawn_blue_timeout():
 	add_child(blueslime)
 	
 	amount += 1 
+
 #Система балів
 func _on_child_exiting_tree(node):
 	if node:
@@ -98,6 +101,7 @@ func game_over():
 	if Save.high_score < Save.score:
 		Save.high_score = Save.score
 		Save.save_high_score()
+
 
 
 #Виконується кожен кадр
