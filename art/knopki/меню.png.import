@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk4u7te0ju8ec"
-path="res://.godot/imported/back копия.png-d12947cd8a85f454725811b2a63894ab.ctex"
+uid="uid://nq4qiy3o378e"
+path="res://.godot/imported/меню.png-e354d2d58dae89fa0db2091c51352284.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/knopki/back копия.png"
-dest_files=["res://.godot/imported/back копия.png-d12947cd8a85f454725811b2a63894ab.ctex"]
+source_file="res://art/knopki/меню.png"
+dest_files=["res://.godot/imported/меню.png-e354d2d58dae89fa0db2091c51352284.ctex"]
 
 [params]
 
