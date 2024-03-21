@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctytaviyodvga"
-path="res://.godot/imported/pause копия.png-b5379d3a5c7a8cb98bd79570b1668f98.ctex"
+uid="uid://4p2vqbfb3l7s"
+path="res://.godot/imported/пауза.png-375dfb32c042315cb93957fd9abada75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/knopki/pause копия.png"
-dest_files=["res://.godot/imported/pause копия.png-b5379d3a5c7a8cb98bd79570b1668f98.ctex"]
+source_file="res://art/knopki/пауза.png"
+dest_files=["res://.godot/imported/пауза.png-375dfb32c042315cb93957fd9abada75.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8v0gu0452u1t"]
 
-[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="1_7qvup"]
+[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/шрифт/Gagalin-Regular.otf" id="1_7qvup"]
 
 [sub_resource type="Animation" id="Animation_dhhje"]
 length = 0.001

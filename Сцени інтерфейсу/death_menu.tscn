@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://blecx1e1bk84w"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/death_menu.gd" id="1_0ui12"]
-[ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="2_r8ov7"]
-[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="3_kcaxi"]
+[ext_resource type="Texture2D" path="res://art/BG/pol.png" id="2_r8ov7"]
+[ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/шрифт/Gagalin-Regular.otf" id="3_kcaxi"]
 [ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_ue63h"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="5_m4nhs"]
 
