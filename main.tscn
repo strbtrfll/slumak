@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://c8v0gu0452u1t" path="res://Сцени інтерфейсу/hud.tscn" id="4_lhxxa"]
 [ext_resource type="PackedScene" uid="uid://dln1m4oxi7653" path="res://Сцени слимаків/blue.tscn" id="5_31ok4"]
 [ext_resource type="PackedScene" uid="uid://cec7ypqolpytf" path="res://Сцени інтерфейсу/pause_menu.tscn" id="5_au65c"]
-[ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="6_oqtlv"]
-[ext_resource type="Texture2D" uid="uid://bprg2fnwbnf7n" path="res://art/UI/pause.png" id="8_fpngq"]
+[ext_resource type="Texture2D" uid="uid://ds65et6otuhg0" path="res://art/fon/пол копия.png" id="6_pcvoo"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="10_sggd6"]
 [ext_resource type="PackedScene" uid="uid://cnfgw3cjc8sgn" path="res://Audio/Music/Gameplay/adaptive_music.tscn" id="11_6uokp"]
+[ext_resource type="Texture2D" uid="uid://ctytaviyodvga" path="res://art/knopki/pause копия.png" id="11_m1e5n"]
 
 [sub_resource type="GDScript" id="GDScript_176t4"]
 script/source = "extends Timer
@@ -45,7 +45,7 @@ layer = -2
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
 offset_right = 480.0
 offset_bottom = 1024.0
-texture = ExtResource("6_oqtlv")
+texture = ExtResource("6_pcvoo")
 expand_mode = 1
 
 [node name="HUD" parent="." instance=ExtResource("4_lhxxa")]
@@ -111,13 +111,22 @@ shape = SubResource("RectangleShape2D_qm77u")
 
 [node name="AdaptiveMusic" parent="." instance=ExtResource("11_6uokp")]
 
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 400.0
-offset_top = 24.0
-offset_right = 456.0
-offset_bottom = 80.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 376.0
+offset_top = 16.0
+offset_right = 472.0
+offset_bottom = 88.0
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("11_m1e5n")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="PauseButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
 focus_mode = 0
-icon = ExtResource("8_fpngq")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -128,4 +137,4 @@ expand_icon = true
 [connection signal="timeout" from="SpawnOrange" to="." method="_on_spawn_orange_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="SpawnBlue" to="." method="_on_spawn_blue_timeout"]
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PauseButton" to="." method="_on_pause_button_pressed"]

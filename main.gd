@@ -157,7 +157,7 @@ var game_paused : bool = false:
 #Кнопка паузи
 func _on_pause_button_pressed():
 	game_paused = true
-	$PauseButton.hide()
+	$MarginContainer.hide()
 	$HUD/Label.hide()
 
 

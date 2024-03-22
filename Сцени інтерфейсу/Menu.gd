@@ -1,5 +1,8 @@
 extends Control
 
+@onready var start_button = $VBoxContainer/MarginContainer/StartButton
+@onready var back_button = $Options/MarginContainer
+
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		toggle()
@@ -10,7 +13,7 @@ func toggle():
 	get_tree().paused = visible
 
 func _ready():
-	$VBoxContainer/StartButton.grab_focus()
+	start_button.grab_focus()
 	
 
 func _on_start_button_pressed():

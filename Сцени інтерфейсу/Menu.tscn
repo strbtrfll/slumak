@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://2q57rululc6n"]
+[gd_scene load_steps=9 format=3 uid="uid://2q57rululc6n"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/Menu.gd" id="1_npgut"]
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
 [ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/BG/Gagalin-Regular.otf" id="2_h5yng"]
-[ext_resource type="Texture2D" uid="uid://653kq8pt411w" path="res://art/BG/pol.png" id="2_ruhv4"]
-[ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_rfpqi"]
-[ext_resource type="Texture2D" uid="uid://4esr6ilr7pjy" path="res://art/UI/back.png" id="5_wnmy6"]
+[ext_resource type="Texture2D" uid="uid://dll3pplx7jfak" path="res://art/fon/кухня  копия.png" id="2_iuwah"]
+[ext_resource type="Texture2D" uid="uid://dylnuwtsl7dee" path="res://art/knopki/гл меню копия.png" id="3_24mbk"]
 [ext_resource type="PackedScene" uid="uid://brwktnd0lerd0" path="res://Сцени інтерфейсу/slider.tscn" id="5_xafo5"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="8_ak3d0"]
 [ext_resource type="AudioStream" uid="uid://cvgc26t0j6p1h" path="res://Audio/Music/Menu/MainMenu.wav" id="10_i48uv"]
@@ -26,10 +25,11 @@ layout_mode = 0
 offset_top = 1.0
 offset_right = 480.0
 offset_bottom = 1025.0
-texture = ExtResource("2_ruhv4")
+texture = ExtResource("2_iuwah")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,37 +44,65 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../QuitButton")
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("3_24mbk")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="StartButton" type="Button" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../MarginContainer3/QuitButton")
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_h5yng")
 theme_override_font_sizes/font_size = 40
 text = "Start"
-icon = ExtResource("4_rfpqi")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="OptionButton" type="Button" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("3_24mbk")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="OptionButton" type="Button" parent="VBoxContainer/MarginContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_h5yng")
 theme_override_font_sizes/font_size = 40
 text = "Options"
-icon = ExtResource("4_rfpqi")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../StartButton")
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/MarginContainer3"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("3_24mbk")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/MarginContainer3"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../MarginContainer/StartButton")
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_h5yng")
 theme_override_font_sizes/font_size = 40
 text = "Quit"
-icon = ExtResource("4_rfpqi")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -126,24 +154,32 @@ horizontal_alignment = 1
 [node name="Slider" parent="Options/HBoxContainer" instance=ExtResource("5_xafo5")]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="Options"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -449.0
-offset_right = 240.0
-offset_bottom = -368.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="MarginContainer" type="MarginContainer" parent="Options"]
+layout_mode = 2
+offset_top = 657.0
+offset_right = 472.0
+offset_bottom = 825.0
+
+[node name="TextureButton" type="TextureButton" parent="Options/MarginContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("3_24mbk")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Options/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h5yng")
+theme_override_font_sizes/font_size = 32
+text = "back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="Options/MarginContainer"]
+layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_h5yng")
 theme_override_font_sizes/font_size = 40
-text = "Back"
-icon = ExtResource("5_wnmy6")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -179,9 +215,9 @@ stream = ExtResource("10_i48uv")
 autoplay = true
 bus = &"RandomMusic"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Options/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer3/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Options/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="timeout" from="UIAudio/StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="finished" from="MainMenuTheme" to="." method="_on_main_menu_theme_finished"]
