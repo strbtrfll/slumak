@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/pause_menu.gd" id="1_25iu8"]
 [ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/шрифт/Gagalin-Regular.otf" id="2_7s507"]
-[ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="3_keq5i"]
+[ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/UI/menu.png" id="3_keq5i"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="4_6pvvf"]
 
 [node name="PauseMenu" type="Control"]
