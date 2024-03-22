@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Сцени інтерфейсу/HighScore.gd" id="2_1armb"]
 [ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/шрифт/Gagalin-Regular.otf" id="2_h5yng"]
 [ext_resource type="Texture2D" path="res://art/BG/pol.png" id="2_ruhv4"]
-[ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_rfpqi"]
+[ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/UI/menu.png" id="4_rfpqi"]
 [ext_resource type="Texture2D" uid="uid://4esr6ilr7pjy" path="res://art/UI/back.png" id="5_wnmy6"]
 [ext_resource type="PackedScene" uid="uid://brwktnd0lerd0" path="res://Сцени інтерфейсу/slider.tscn" id="5_xafo5"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="8_ak3d0"]

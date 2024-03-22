@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t55811ffk4ys"
-path="res://.godot/imported/back.png-86e34e2eaa58d3b9b60d800d35e44dee.ctex"
+uid="uid://c5cbhgiqywucu"
+path="res://.godot/imported/menu.png-d72d15b1e2a5b3ae4e2f68c86cebba21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/knopki/back.png"
-dest_files=["res://.godot/imported/back.png-86e34e2eaa58d3b9b60d800d35e44dee.ctex"]
+source_file="res://art/UI/menu.png"
+dest_files=["res://.godot/imported/menu.png-d72d15b1e2a5b3ae4e2f68c86cebba21.ctex"]
 
 [params]
 

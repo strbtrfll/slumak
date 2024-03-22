@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://blecx1e1bk84w"]
+[gd_scene load_steps=5 format=3 uid="uid://blecx1e1bk84w"]
 
 [ext_resource type="Script" path="res://Сцени інтерфейсу/death_menu.gd" id="1_0ui12"]
-[ext_resource type="Texture2D" path="res://art/BG/pol.png" id="2_r8ov7"]
 [ext_resource type="FontFile" uid="uid://bewt3623l6cbf" path="res://art/шрифт/Gagalin-Regular.otf" id="3_kcaxi"]
-[ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/menu.png" id="4_ue63h"]
+[ext_resource type="Texture2D" uid="uid://c5cbhgiqywucu" path="res://art/UI/menu.png" id="4_ue63h"]
 [ext_resource type="PackedScene" uid="uid://ces00klq1ru2j" path="res://Audio/SFX/UI/ui_audio.tscn" id="5_m4nhs"]
 
 [node name="DeathMenu" type="Control"]
@@ -20,7 +19,6 @@ self_modulate = Color(0.494118, 0.0941176, 0.247059, 1)
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 1024.0
-texture = ExtResource("2_r8ov7")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
